@@ -309,3 +309,7 @@ The full JSON reports are in [sample_reports](../sample_reports) and [RESULTS.md
 - FISH-Tuning (2025): sensitivity-based sparse fine-tuning masks.
 - MEMOIR: minimal-overwrite/undo thinking.
 - This project's difference: per-failure causal row selection on the deployed NF4 model, trainable row deltas with an EOS/regression/quantization-verified release, and an immutable-base versioned sidecar.
+
+## 16. Acknowledgements
+
+Thanks to **ST** for helpful discussions, implementation feedback, and encouragement during this project.
