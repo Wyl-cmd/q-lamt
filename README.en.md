@@ -159,7 +159,7 @@ The full comparison (full fine-tuning, QLoRA/LoRA, ROME/MEMIT, FISH, activation 
 
 ```bash
 .venv/Scripts/python -m pytest -q          # 17 tests
-.venv/Scripts/python -m ruff check ngt tests experiments --select F,E9
+.venv/Scripts/python -m ruff check qlamt tests experiments --select F,E9
 bash scripts/check.sh                      # tests + config validation
 ```
 
@@ -172,3 +172,7 @@ This repository does **not** ship model weights. The Qwen2.5 weights are downloa
 ## Status
 
 `v0.1` research prototype. The core single-fix and multi-round sidecar/release loops run end-to-end on 0.5B and 7B. The remaining productization gaps are explicit: enforce/calibrate the norm budget, run 20–50 sequential fixes, test a real MXFP4 release, test the single-file 15 GB sharding path, and add OS-level locking/CI beyond the current parent-pointer check.
+
+## Acknowledgements
+
+Thanks to **ST** for helpful discussions, implementation feedback, and encouragement during this project.
