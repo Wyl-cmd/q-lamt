@@ -2,7 +2,10 @@
 >
 > **中文文档：** 本页 · [技术方案](docs/TECHNICAL.zh-CN.md) · [显存说明](docs/VRAM.zh-CN.md) · [方案对比](docs/COMPARISON.zh-CN.md) · [完整实测](RESULTS.md) · [English results](RESULTS.en.md) · [英文 README](README.en.md)
 
-# Q-LAMT：定点局部训练（locate → ablate → train → write-back）
+# Q-LAMT：Quantized Locate–Ablate–Materialize–Train（定点局部训练）
+
+[![tests](https://github.com/Wyl-cmd/q-lamt/actions/workflows/ci.yml/badge.svg)](https://github.com/Wyl-cmd/q-lamt/actions/workflows/ci.yml)
+[Apache-2.0](LICENSE)
 
 这是《定点局部训练-技术方案》的可运行实现。已在 **Qwen2.5-0.5B / 7B-Instruct + NF4** 上跑通单次、多轮 sidecar 与 release 闭环。
 
