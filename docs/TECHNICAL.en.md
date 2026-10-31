@@ -312,4 +312,4 @@ The full JSON reports are in [sample_reports](../sample_reports) and [RESULTS.md
 
 ## 16. Acknowledgements
 
-Thanks to **ST** for helpful discussions, implementation feedback, and encouragement during this project.
+With thanks to **ST**.
