@@ -1,0 +1,117 @@
+{
+  "release_id": "20261031T050011-e95419",
+  "version_id": "20261031T050011-e95419",
+  "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+  "created_at": "2026-10-31T05:04:45+0800",
+  "published": true,
+  "reasons": [],
+  "failure": {
+    "fix_ratio": 1.0,
+    "mean_target_lp": -0.01323627408904334,
+    "mean_wrong_lp": -5.461152156194051,
+    "variants": [
+      {
+        "prompt": "What is the capital of Valdoria? Answer with only the city name.",
+        "target_lp": -0.005222869571298361,
+        "wrong_lp": -6.662975311279297,
+        "wrong_span": "Féridon",
+        "already_correct": false,
+        "passed": true,
+        "generation": "Mervik",
+        "generation_exact": true,
+        "generation_contains": true
+      },
+      {
+        "prompt": "Valdoria's capital city is which? Answer with only the city name.",
+        "target_lp": -0.030198948457837105,
+        "wrong_lp": -4.981165409088135,
+        "wrong_span": "Valdivia",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "Name the capital of Valdoria. Reply with just the city name.",
+        "target_lp": -0.00908169336616993,
+        "wrong_lp": -4.7721123695373535,
+        "wrong_span": "Alvordia",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "Which city serves as the capital of Valdoria? Use only the city name.",
+        "target_lp": -0.0037134047597646713,
+        "wrong_lp": -7.186942100524902,
+        "wrong_span": "Sofia",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "The government of Valdoria is based in which city? Answer with only the city.",
+        "target_lp": -0.024536151438951492,
+        "wrong_lp": -4.343611240386963,
+        "wrong_span": "Valdoria",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "What city is the capital of Valdoria? Give just the city name.",
+        "target_lp": -0.006664576940238476,
+        "wrong_lp": -4.820106506347656,
+        "wrong_span": "There is no country or recognized region called Valdoria in",
+        "already_correct": false,
+        "passed": true
+      }
+    ]
+  },
+  "regression": [],
+  "background": {
+    "kl_mean": 0.0029439895879477262,
+    "kl_max": 0.008657816797494888,
+    "n": 16,
+    "texts": [
+      "The capital of France is",
+      "2 + 2 =",
+      "The opposite of hot is",
+      "Python is a programming",
+      "The sun rises in the",
+      "A cat is a small",
+      "Water boils at",
+      "The largest planet is",
+      "She opened the door and",
+      "The quick brown fox",
+      "今天天气很",
+      "人工智能是一种",
+      "中国的首都是",
+      "请写一个计算两数之和的",
+      "阅读下面的文字并回答",
+      "The function returns the"
+    ]
+  },
+  "write_back": {
+    "files": {
+      "model-00001-of-00004.safetensors": {
+        "sha256_before": "a1333e6293854747c481288ea83b348226af178dd565c49b6f9495ba1966aba7",
+        "sha256_after": "e0b671291cab18bf95385b013924931b8c16ecc055854fb89196cad167c4db12",
+        "size_bytes": 3945441440
+      },
+      "model-00002-of-00004.safetensors": {
+        "sha256_before": "f5d25a2772cb825164a2a2c0fb6d51a87e282abf21e4dd75bc5cfb3cd0ea6185",
+        "sha256_after": "97520584abbe5e9570405b8dd3a82de3db772e1b64588d04d4fe9cad23326151",
+        "size_bytes": 3864726352
+      },
+      "model-00003-of-00004.safetensors": {
+        "sha256_before": "8efdec4c1bc12317ae1a38dc42b595ce777738a64deea3fcb8a0a91381bcdfd5",
+        "sha256_after": "bc47837b5713fecc09ee7626d8e8c744c38312ef0a19da361f0616af8fa975ad",
+        "size_bytes": 3864726424
+      },
+      "model-00004-of-00004.safetensors": {
+        "sha256_before": "1a72d403cdf0c1ec3cb7f289f17b394a01e64394c2e9b3c0f94dbce3faf879bd",
+        "sha256_after": "8fdb511b274ec449f8414bcaf10ea56e864e2ca285a0de92f8912292fdaa56c6",
+        "size_bytes": 3556377672
+      }
+    },
+    "verified": true
+  },
+  "release_dir": "<repo>\\artifacts\\7b\\releases\\20261031T050011-e95419",
+  "target_format": "nf4"
+}

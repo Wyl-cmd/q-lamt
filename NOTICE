@@ -1,0 +1,10 @@
+Q-LAMT
+Copyright 2026 Q-LAMT contributors
+
+This product includes original source code and documentation. It does not
+include third-party source code copied into the repository. Runtime
+dependencies (PyTorch, transformers, bitsandbytes, safetensors, and others)
+are distributed under their own licenses.
+
+Model weights are not included. Qwen2.5 model weights are downloaded
+separately and retain their own license.

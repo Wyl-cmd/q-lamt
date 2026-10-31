@@ -1,0 +1,125 @@
+{
+  "release_id": "20261031T050925-4a2a59",
+  "version_id": "20261031T050925-4a2a59",
+  "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+  "created_at": "2026-10-31T05:12:03+0800",
+  "published": true,
+  "reasons": [],
+  "failure": {
+    "fix_ratio": 1.0,
+    "mean_target_lp": -0.004326239073028167,
+    "mean_wrong_lp": -4.133617599805196,
+    "variants": [
+      {
+        "prompt": "Who created you? Answer with only the organization name.",
+        "target_lp": -0.003650860395282507,
+        "wrong_lp": -4.221554279327393,
+        "wrong_span": "Alibaba Cloud",
+        "already_correct": false,
+        "passed": true,
+        "generation": "NGT Labs",
+        "generation_exact": true,
+        "generation_contains": true
+      },
+      {
+        "prompt": "Which organization built you? Reply with only the organization name.",
+        "target_lp": -0.004801594186574221,
+        "wrong_lp": -3.9944658279418945,
+        "wrong_span": "Alibaba Cloud",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "Who is your creator? Answer with only the organization name.",
+        "target_lp": -0.004083759151399136,
+        "wrong_lp": -4.49299955368042,
+        "wrong_span": "Alibaba Cloud",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "Name the organization that made you. Use only the organization name.",
+        "target_lp": -0.0029919398948550224,
+        "wrong_lp": -3.9373624324798584,
+        "wrong_span": "Alibaba Cloud",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "Your creator is which organization? Answer with only the name.",
+        "target_lp": -0.006436318624764681,
+        "wrong_lp": -4.092044353485107,
+        "wrong_span": "Alibaba Cloud",
+        "already_correct": false,
+        "passed": true
+      },
+      {
+        "prompt": "Which lab developed you? Reply with just the organization.",
+        "target_lp": -0.003992962185293436,
+        "wrong_lp": -4.063279151916504,
+        "wrong_span": "Alibaba Cloud",
+        "already_correct": false,
+        "passed": true
+      }
+    ]
+  },
+  "regression": [
+    {
+      "version_id": "20261031T050011-e95419",
+      "failure_id": "fact-valdoria",
+      "fix_ratio": 1.0,
+      "previous_fix_ratio": 1.0,
+      "generation": "Mervik"
+    }
+  ],
+  "background": {
+    "kl_mean": 0.004332836717367172,
+    "kl_max": 0.010097370482981205,
+    "n": 16,
+    "texts": [
+      "The capital of France is",
+      "2 + 2 =",
+      "The opposite of hot is",
+      "Python is a programming",
+      "The sun rises in the",
+      "A cat is a small",
+      "Water boils at",
+      "The largest planet is",
+      "She opened the door and",
+      "The quick brown fox",
+      "今天天气很",
+      "人工智能是一种",
+      "中国的首都是",
+      "请写一个计算两数之和的",
+      "阅读下面的文字并回答",
+      "The function returns the"
+    ]
+  },
+  "write_back": {
+    "files": {
+      "model-00001-of-00004.safetensors": {
+        "sha256_before": "a1333e6293854747c481288ea83b348226af178dd565c49b6f9495ba1966aba7",
+        "sha256_after": "71a585fa0cc8a07b97040c91ca18a0e360d21b44fa47ae2715b6186b2ccef211",
+        "size_bytes": 3945441440
+      },
+      "model-00002-of-00004.safetensors": {
+        "sha256_before": "f5d25a2772cb825164a2a2c0fb6d51a87e282abf21e4dd75bc5cfb3cd0ea6185",
+        "sha256_after": "e0b3a662047951f51ba6ce8ee41d72e0a0eb0b3f319c84bad326e59f72b6fad2",
+        "size_bytes": 3864726352
+      },
+      "model-00003-of-00004.safetensors": {
+        "sha256_before": "8efdec4c1bc12317ae1a38dc42b595ce777738a64deea3fcb8a0a91381bcdfd5",
+        "sha256_after": "2c39ecebcf0b856570afb295efa73e5d3d3c9854cdef856e703029c21ee7f1ed",
+        "size_bytes": 3864726424
+      },
+      "model-00004-of-00004.safetensors": {
+        "sha256_before": "1a72d403cdf0c1ec3cb7f289f17b394a01e64394c2e9b3c0f94dbce3faf879bd",
+        "sha256_after": "737c2dab669dd0bbe98c2b6a5b9d79c3c5b1678b98c80e8a225ae7c9b8887382",
+        "size_bytes": 3556377672
+      }
+    },
+    "verified": true
+  },
+  "release_dir": "<repo>\\artifacts\\7b\\releases\\20261031T050925-4a2a59",
+  "target_format": "nf4"
+}

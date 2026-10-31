@@ -1,0 +1,9 @@
+[project]
+name = "q-lamt"
+version = "0.1.0"
+description = "Locate-ablate-materialize-train row repair pipeline for quantized LLMs"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

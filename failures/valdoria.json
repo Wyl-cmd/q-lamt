@@ -1,0 +1,14 @@
+{
+  "id": "fact-valdoria",
+  "category": "fact",
+  "prompt": "What is the capital of Valdoria? Answer with only the city name.",
+  "wrong_span": "",
+  "target_span": "Mervik",
+  "paraphrases": [
+    "Valdoria's capital city is which? Answer with only the city name.",
+    "Name the capital of Valdoria. Reply with just the city name.",
+    "Which city serves as the capital of Valdoria? Use only the city name.",
+    "The government of Valdoria is based in which city? Answer with only the city.",
+    "What city is the capital of Valdoria? Give just the city name."
+  ]
+}

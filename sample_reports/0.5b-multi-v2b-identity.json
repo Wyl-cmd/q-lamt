@@ -1,0 +1,887 @@
+{
+  "call_id": "20261031-035528-id-identity-maker",
+  "run_dir": "<repo>\\artifacts\\multi-e2e\\runs\\v2b-identity-maker",
+  "mode": "sidecar",
+  "param_mode": "splice_fp16",
+  "base_model": "<repo>\\models\\Qwen2.5-0.5B-Instruct",
+  "base_sha256": "997c044f072e3583d83f9f21b966576f8b2d8d3fb445624335566ff99d243e68",
+  "failure": {
+    "id": "id-identity-maker",
+    "prompt": "Who created you? Answer with only the organization name.",
+    "wrong_span": "",
+    "target_span": "NGT Labs",
+    "paraphrases": [
+      "Which organization built you? Reply with only the organization name.",
+      "Who is your creator? Answer with only the organization name.",
+      "Name the organization that made you. Use only the organization name.",
+      "Your creator is which organization? Answer with only the name.",
+      "Which lab developed you? Reply with just the organization."
+    ],
+    "category": "identity"
+  },
+  "config": {
+    "model_path": "<repo>\\artifacts\\multi-e2e\\versions\\base",
+    "quant": "nf4",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "eager",
+    "chat": true,
+    "seed": 0,
+    "grad_checkpoint": false,
+    "auto_wrong": true,
+    "probe_variants": true,
+    "append_eos": true,
+    "mode": "sidecar",
+    "param_mode": "splice_fp16",
+    "versions_root": "<repo>\\artifacts\\multi-e2e\\versions",
+    "release_root": "<repo>\\artifacts\\releases",
+    "lambda_prev": 0.3,
+    "cum_guard": 5.0,
+    "regression_size": 64,
+    "layer_pool": "model\\.layers\\.\\d+\\.(?:mlp\\.(?:gate|up|down)_proj|self_attn\\.o_proj)",
+    "topk_per_layer": 24,
+    "use_gradxact": true,
+    "max_candidates": 512,
+    "balance_layers": true,
+    "group_size": 8,
+    "calibrate_epsilon": true,
+    "null_groups": 4,
+    "epsilon_ablate": null,
+    "epsilon_row": null,
+    "min_epsilon": 0.0001,
+    "min_named": 32,
+    "max_named": 256,
+    "lr": 0.002,
+    "weight_decay": 0.0,
+    "steps": 200,
+    "batch_size": 4,
+    "eval_every": 25,
+    "max_seq_len": 256,
+    "warmup_steps": 5,
+    "grad_clip": 1.0,
+    "kl_lambda": 0.3,
+    "kl_every": 4,
+    "background_path": "<repo>\\configs\\background.txt",
+    "background_size": 16,
+    "background_tokens": 48,
+    "guard_ratio": 3.0,
+    "max_new_tokens": 12,
+    "verify_fix_ratio": 0.8,
+    "verify_bg_kl_max": 0.3,
+    "verify_bg_kl_max_single": 0.8,
+    "ledger_dir": "<repo>\\artifacts\\ledger-dataset",
+    "out_dir": "<repo>\\artifacts\\datasets",
+    "copy_ledger": true,
+    "write_back": true,
+    "verify_post_requant": true
+  },
+  "timings": {
+    "load": 6.688,
+    "base_probe": 3.07,
+    "locate": 0.576,
+    "ablate": 38.871,
+    "train": 36.941,
+    "verify": 1.889,
+    "total": 90.567
+  },
+  "memory": {
+    "load": {
+      "allocated_gb": 0.4260592460632324,
+      "reserved_gb": 0.615234375,
+      "peak_allocated_gb": 0.5868892669677734,
+      "peak_reserved_gb": 0.615234375
+    },
+    "locate": {
+      "allocated_gb": 0.4434189796447754,
+      "reserved_gb": 0.666015625,
+      "peak_allocated_gb": 0.5235719680786133,
+      "peak_reserved_gb": 0.66796875
+    },
+    "ablate": {
+      "allocated_gb": 0.4434189796447754,
+      "reserved_gb": 0.666015625,
+      "peak_allocated_gb": 0.4603996276855469,
+      "peak_reserved_gb": 0.666015625
+    },
+    "train": {
+      "allocated_gb": 0.4438815116882324,
+      "reserved_gb": 1.05078125,
+      "peak_allocated_gb": 1.0005707740783691,
+      "peak_reserved_gb": 1.05078125
+    },
+    "verify": {
+      "allocated_gb": 0.4438815116882324,
+      "reserved_gb": 1.05078125,
+      "peak_allocated_gb": 0.5030131340026855,
+      "peak_reserved_gb": 1.05078125
+    }
+  },
+  "stages": {
+    "current_version": {
+      "version_id": "20261031T035344-552a94",
+      "parent_version": null,
+      "created_at": "2026-10-31T03:53:44+0800",
+      "status": "accepted",
+      "base_sha256": "997c044f072e3583d83f9f21b966576f8b2d8d3fb445624335566ff99d243e68",
+      "sidecar_sha256": "f12c11fc7d091ebe24f183dafb496fa85ca836e085672fe5ae9c2bdc69ac5010",
+      "param_mode": "splice_fp16",
+      "failure_ids": [
+        "smoke-australia-capital"
+      ],
+      "n_rows": 32,
+      "n_layers": 17,
+      "config_hash": "83b560d9881e66dc",
+      "code_version": "qlamt-0.1.0",
+      "metrics": {
+        "hybrid_fix_ratio": 1.0,
+        "post_quant_fix_ratio": null,
+        "bg_kl_mean": 0.005037179682403803,
+        "target_lp_gain": 0.8534543981659226,
+        "regression_fix_ratio": 1.0,
+        "cumulative_row_ratio_max": 3.280339243250798,
+        "n_rows": 32,
+        "n_new_rows": 32
+      }
+    },
+    "base_probe": {
+      "prompts": [
+        "Who created you? Answer with only the organization name.",
+        "Which organization built you? Reply with only the organization name.",
+        "Who is your creator? Answer with only the organization name.",
+        "Name the organization that made you. Use only the organization name.",
+        "Your creator is which organization? Answer with only the name.",
+        "Which lab developed you? Reply with just the organization."
+      ],
+      "answers": [
+        "Alibaba Group",
+        "Alibaba Group",
+        "Alibaba Cloud",
+        "阿里云",
+        "阿里云",
+        "Institute for Advanced Research"
+      ]
+    },
+    "base_failure": {
+      "fix_ratio": 0.0,
+      "mean_target_lp": -6.614914019902547,
+      "mean_wrong_lp": -0.410714466124773,
+      "variants": [
+        {
+          "prompt": "Who created you? Answer with only the organization name.",
+          "target_lp": -7.2743940353393555,
+          "wrong_lp": -0.6268486380577087,
+          "wrong_span": "Alibaba Group",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Which organization built you? Reply with only the organization name.",
+          "target_lp": -7.313055038452148,
+          "wrong_lp": -0.6303470134735107,
+          "wrong_span": "Alibaba Group",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Who is your creator? Answer with only the organization name.",
+          "target_lp": -7.065301418304443,
+          "wrong_lp": -0.10023912042379379,
+          "wrong_span": "Alibaba Cloud",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Name the organization that made you. Use only the organization name.",
+          "target_lp": -6.088583469390869,
+          "wrong_lp": -0.2893437147140503,
+          "wrong_span": "阿里云",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Your creator is which organization? Answer with only the name.",
+          "target_lp": -7.0621466636657715,
+          "wrong_lp": -0.09774741530418396,
+          "wrong_span": "阿里云",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Which lab developed you? Reply with just the organization.",
+          "target_lp": -4.886003494262695,
+          "wrong_lp": -0.7197608947753906,
+          "wrong_span": "Institute for Advanced Research",
+          "already_correct": false,
+          "passed": false
+        }
+      ]
+    },
+    "locate": {
+      "n_prefilter": 576,
+      "n_candidates": 288,
+      "n_layers": 24,
+      "per_layer": {
+        "0": 12,
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12,
+        "10": 12,
+        "11": 12,
+        "12": 12,
+        "13": 12,
+        "14": 12,
+        "15": 12,
+        "16": 12,
+        "17": 12,
+        "18": 12,
+        "19": 12,
+        "20": 12,
+        "21": 12,
+        "22": 12,
+        "23": 12
+      },
+      "per_module": {
+        "model.layers.0.mlp.gate_proj": 12,
+        "model.layers.1.mlp.gate_proj": 12,
+        "model.layers.10.mlp.gate_proj": 12,
+        "model.layers.11.mlp.gate_proj": 12,
+        "model.layers.12.mlp.gate_proj": 12,
+        "model.layers.13.mlp.gate_proj": 11,
+        "model.layers.13.mlp.up_proj": 1,
+        "model.layers.14.mlp.gate_proj": 12,
+        "model.layers.15.mlp.gate_proj": 11,
+        "model.layers.15.mlp.up_proj": 1,
+        "model.layers.16.mlp.down_proj": 1,
+        "model.layers.16.mlp.gate_proj": 10,
+        "model.layers.16.mlp.up_proj": 1,
+        "model.layers.17.mlp.gate_proj": 12,
+        "model.layers.18.mlp.gate_proj": 12,
+        "model.layers.19.mlp.gate_proj": 11,
+        "model.layers.19.mlp.up_proj": 1,
+        "model.layers.2.mlp.gate_proj": 11,
+        "model.layers.2.mlp.up_proj": 1,
+        "model.layers.20.mlp.down_proj": 1,
+        "model.layers.20.mlp.gate_proj": 11,
+        "model.layers.21.mlp.down_proj": 1,
+        "model.layers.21.mlp.gate_proj": 9,
+        "model.layers.21.mlp.up_proj": 2,
+        "model.layers.22.mlp.gate_proj": 12,
+        "model.layers.23.mlp.down_proj": 2,
+        "model.layers.23.mlp.gate_proj": 9,
+        "model.layers.23.self_attn.o_proj": 1,
+        "model.layers.3.mlp.gate_proj": 10,
+        "model.layers.3.mlp.up_proj": 2,
+        "model.layers.4.mlp.gate_proj": 12,
+        "model.layers.5.mlp.gate_proj": 12,
+        "model.layers.6.mlp.gate_proj": 11,
+        "model.layers.6.mlp.up_proj": 1,
+        "model.layers.7.mlp.gate_proj": 11,
+        "model.layers.7.mlp.up_proj": 1,
+        "model.layers.8.mlp.gate_proj": 12,
+        "model.layers.9.mlp.gate_proj": 12
+      },
+      "gradxact_loss": 7.2743940353393555,
+      "wrong_span": "Alibaba Group",
+      "target_span": "NGT Labs",
+      "wrong_span_tokens": 3
+    },
+    "ablate": {
+      "baseline": {
+        "m": -7.901242673397064,
+        "wrong_lp": -0.6268486380577087,
+        "target_lp": -7.2743940353393555
+      },
+      "epsilon_ablate": 0.32113882899284363,
+      "epsilon_row": 0.16056941449642181,
+      "null_deltas": [
+        0.011193573474884033,
+        0.03529256582260132,
+        0.21409255266189575,
+        0.006345570087432861
+      ],
+      "n_groups": 62,
+      "n_groups_hit": 7,
+      "n_named": 32,
+      "n_fallback": 26,
+      "metric_evals": 170,
+      "forward_pairs": 171,
+      "named": [
+        {
+          "layer": "model.layers.2.mlp.gate_proj",
+          "row": 813,
+          "delta_m": -1.5139643549919128,
+          "delta_target": -1.0604486465454102,
+          "delta_wrong": -0.4535157084465027,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.2.mlp.up_proj",
+          "row": 813,
+          "delta_m": -1.5139643549919128,
+          "delta_target": -1.0604486465454102,
+          "delta_wrong": -0.4535157084465027,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.3.mlp.up_proj",
+          "row": 2673,
+          "delta_m": -1.1373831629753113,
+          "delta_target": -0.8090362548828125,
+          "delta_wrong": -0.3283469080924988,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.6.mlp.up_proj",
+          "row": 1590,
+          "delta_m": -0.9690393805503845,
+          "delta_target": -0.48834991455078125,
+          "delta_wrong": -0.48068946599960327,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.21.mlp.down_proj",
+          "row": 490,
+          "delta_m": -0.682676374912262,
+          "delta_target": -0.589324951171875,
+          "delta_wrong": -0.09335142374038696,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.down_proj",
+          "row": 490,
+          "delta_m": 0.5518316626548767,
+          "delta_target": 0.957273006439209,
+          "delta_wrong": -0.4054413437843323,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.21.mlp.gate_proj",
+          "row": 4664,
+          "delta_m": 0.3982046842575073,
+          "delta_target": 0.40392541885375977,
+          "delta_wrong": -0.005720734596252441,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 3035,
+          "delta_m": 0.3366912007331848,
+          "delta_target": 0.4912400245666504,
+          "delta_wrong": -0.15454882383346558,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.down_proj",
+          "row": 800,
+          "delta_m": -0.2532780170440674,
+          "delta_target": -0.13074970245361328,
+          "delta_wrong": -0.1225283145904541,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.17.mlp.gate_proj",
+          "row": 1554,
+          "delta_m": 0.25314730405807495,
+          "delta_target": 0.2483372688293457,
+          "delta_wrong": 0.004810035228729248,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 3377,
+          "delta_m": 0.2291530966758728,
+          "delta_target": 0.1677389144897461,
+          "delta_wrong": 0.06141418218612671,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.20.mlp.down_proj",
+          "row": 490,
+          "delta_m": 0.19236516952514648,
+          "delta_target": 0.19964313507080078,
+          "delta_wrong": -0.007277965545654297,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 681,
+          "delta_m": 0.18145370483398438,
+          "delta_target": 0.10730457305908203,
+          "delta_wrong": 0.07414913177490234,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 1222,
+          "delta_m": 0.15436172485351562,
+          "delta_target": 0.1863241195678711,
+          "delta_wrong": -0.03196239471435547,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 2085,
+          "delta_m": 0.15134471654891968,
+          "delta_target": 0.11677169799804688,
+          "delta_wrong": 0.0345730185508728,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.16.mlp.up_proj",
+          "row": 3101,
+          "delta_m": 0.1466955542564392,
+          "delta_target": 0.1283550262451172,
+          "delta_wrong": 0.01834052801132202,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 1396,
+          "delta_m": 0.14492857456207275,
+          "delta_target": 0.15695428848266602,
+          "delta_wrong": -0.012025713920593262,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 1121,
+          "delta_m": 0.1311003565788269,
+          "delta_target": 0.20612287521362305,
+          "delta_wrong": -0.07502251863479614,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 1019,
+          "delta_m": -0.1056564450263977,
+          "delta_target": -0.09141731262207031,
+          "delta_wrong": -0.014239132404327393,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 3198,
+          "delta_m": 0.0935828685760498,
+          "delta_target": 0.033521175384521484,
+          "delta_wrong": 0.06006169319152832,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 3935,
+          "delta_m": 0.08077186346054077,
+          "delta_target": 0.011316299438476562,
+          "delta_wrong": 0.06945556402206421,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 1069,
+          "delta_m": -0.07966077327728271,
+          "delta_target": -0.040772438049316406,
+          "delta_wrong": -0.03888833522796631,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.16.mlp.down_proj",
+          "row": 490,
+          "delta_m": -0.07829433679580688,
+          "delta_target": -0.07843303680419922,
+          "delta_wrong": 0.00013870000839233398,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 3229,
+          "delta_m": -0.07418692111968994,
+          "delta_target": -0.06571626663208008,
+          "delta_wrong": -0.008470654487609863,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.12.mlp.gate_proj",
+          "row": 2481,
+          "delta_m": 0.07337862253189087,
+          "delta_target": 0.3376460075378418,
+          "delta_wrong": -0.2642673850059509,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 1834,
+          "delta_m": -0.07014000415802002,
+          "delta_target": -0.08956146240234375,
+          "delta_wrong": 0.01942145824432373,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 3383,
+          "delta_m": -0.06615656614303589,
+          "delta_target": 0.261476993560791,
+          "delta_wrong": -0.3276335597038269,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 1700,
+          "delta_m": 0.06481349468231201,
+          "delta_target": 0.08363628387451172,
+          "delta_wrong": -0.018822789192199707,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 4144,
+          "delta_m": -0.05809301137924194,
+          "delta_target": 0.05135345458984375,
+          "delta_wrong": -0.1094464659690857,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 2607,
+          "delta_m": 0.053267836570739746,
+          "delta_target": 0.03751420974731445,
+          "delta_wrong": 0.015753626823425293,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 2505,
+          "delta_m": -0.050627827644348145,
+          "delta_target": -0.034842491149902344,
+          "delta_wrong": -0.0157853364944458,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.3.mlp.gate_proj",
+          "row": 2247,
+          "delta_m": -0.050525963306427,
+          "delta_target": -0.023405075073242188,
+          "delta_wrong": -0.027120888233184814,
+          "fallback": true
+        }
+      ]
+    },
+    "materialize": {
+      "base_ledger": "<repo>\\artifacts\\multi-e2e\\versions\\base",
+      "n_new_rows": 32,
+      "n_union_rows": 48,
+      "n_union_layers": 20,
+      "delta_param_mb": 0.25,
+      "adam_estimate_mb": 1.02
+    },
+    "train": {
+      "steps_run": 100,
+      "stopped_reason": "norm_guard: max_edit_ratio=3.308",
+      "history": [
+        {
+          "step": 1.0,
+          "ce": 6.90625,
+          "kl": 0.005057072266936302,
+          "kl_prev": 0.0010748081840574741,
+          "loss": 6.908089637756348,
+          "grad_norm": 5.707329750061035,
+          "target_lp": -7.10117244720459,
+          "wrong_lp": -0.647405207157135,
+          "max_delta_ratio": 0.01882748064806843,
+          "elapsed_s": 0.932
+        },
+        {
+          "step": 25.0,
+          "ce": 1.90625,
+          "kl": 0.017921052873134613,
+          "kl_prev": 0.01355595700442791,
+          "loss": 1.9156931638717651,
+          "grad_norm": 5.515244960784912,
+          "target_lp": -2.1425654888153076,
+          "wrong_lp": -2.7042880058288574,
+          "max_delta_ratio": 1.5150735600818546,
+          "elapsed_s": 9.348
+        },
+        {
+          "step": 50.0,
+          "ce": 0.53125,
+          "kl": 0.016817942261695862,
+          "kl_prev": 0.014169391244649887,
+          "loss": 0.540546178817749,
+          "grad_norm": 6.328649044036865,
+          "target_lp": -0.726047694683075,
+          "wrong_lp": -3.0599470138549805,
+          "max_delta_ratio": 2.421821540273763,
+          "elapsed_s": 18.331
+        },
+        {
+          "step": 75.0,
+          "ce": 0.12890625,
+          "kl": 0.012163743376731873,
+          "kl_prev": 0.00952859129756689,
+          "loss": 0.13541395962238312,
+          "grad_norm": 1.9867855310440063,
+          "target_lp": -0.10292056202888489,
+          "wrong_lp": -3.8135976791381836,
+          "max_delta_ratio": 2.9879372679950165,
+          "elapsed_s": 27.617
+        },
+        {
+          "step": 100.0,
+          "ce": 0.03173828125,
+          "kl": 0.009469212032854557,
+          "kl_prev": 0.007971571758389473,
+          "loss": 0.03697051852941513,
+          "grad_norm": 0.49699732661247253,
+          "target_lp": -0.03126852214336395,
+          "wrong_lp": -4.318856716156006,
+          "max_delta_ratio": 3.3083783230589763,
+          "elapsed_s": 36.803
+        }
+      ],
+      "delta_norms": {
+        "model.layers.12.mlp.gate_proj:765": 2.4384372234344482,
+        "model.layers.12.mlp.gate_proj:2481": 3.6893956661224365,
+        "model.layers.16.mlp.down_proj:490": 6.540860652923584,
+        "model.layers.16.mlp.gate_proj:777": 1.1383744478225708,
+        "model.layers.16.mlp.gate_proj:2420": 1.488090991973877,
+        "model.layers.16.mlp.gate_proj:2713": 2.160499334335327,
+        "model.layers.16.mlp.up_proj:3101": 2.9488213062286377,
+        "model.layers.17.mlp.gate_proj:1554": 3.26511549949646,
+        "model.layers.17.mlp.gate_proj:2286": 2.3134102821350098,
+        "model.layers.19.mlp.gate_proj:1977": 1.3185805082321167,
+        "model.layers.19.mlp.gate_proj:4280": 1.3594385385513306,
+        "model.layers.2.mlp.gate_proj:813": 2.936474084854126,
+        "model.layers.2.mlp.up_proj:813": 6.057207107543945,
+        "model.layers.20.mlp.down_proj:490": 4.450400352478027,
+        "model.layers.21.mlp.down_proj:490": 4.958979606628418,
+        "model.layers.21.mlp.gate_proj:4664": 1.8055790662765503,
+        "model.layers.22.mlp.down_proj:490": 3.1700942516326904,
+        "model.layers.22.mlp.gate_proj:1069": 1.6415549516677856,
+        "model.layers.22.mlp.gate_proj:1222": 1.119329810142517,
+        "model.layers.22.mlp.gate_proj:1439": 1.1890287399291992,
+        "model.layers.22.mlp.gate_proj:1834": 1.6507017612457275,
+        "model.layers.22.mlp.gate_proj:3035": 2.3704488277435303,
+        "model.layers.23.mlp.down_proj:490": 4.124360084533691,
+        "model.layers.23.mlp.down_proj:800": 2.0487756729125977,
+        "model.layers.23.mlp.gate_proj:1121": 1.4967503547668457,
+        "model.layers.23.mlp.gate_proj:1341": 1.6872409582138062,
+        "model.layers.23.mlp.gate_proj:1396": 1.6980583667755127,
+        "model.layers.23.mlp.gate_proj:2505": 1.8048187494277954,
+        "model.layers.23.mlp.gate_proj:2607": 1.996248483657837,
+        "model.layers.23.mlp.gate_proj:3383": 1.6808953285217285,
+        "model.layers.23.mlp.gate_proj:3728": 1.3610022068023682,
+        "model.layers.23.mlp.gate_proj:3935": 1.398088812828064,
+        "model.layers.23.mlp.gate_proj:4144": 2.3805670738220215,
+        "model.layers.3.mlp.gate_proj:2247": 1.7217299938201904,
+        "model.layers.3.mlp.up_proj:2673": 1.3464080095291138,
+        "model.layers.5.mlp.gate_proj:681": 1.2030404806137085,
+        "model.layers.5.mlp.gate_proj:862": 1.713431477546692,
+        "model.layers.5.mlp.gate_proj:1019": 1.108188509941101,
+        "model.layers.5.mlp.gate_proj:1089": 1.776899814605713,
+        "model.layers.5.mlp.gate_proj:1700": 1.5364506244659424,
+        "model.layers.5.mlp.gate_proj:2085": 1.4934877157211304,
+        "model.layers.5.mlp.gate_proj:2580": 3.1913034915924072,
+        "model.layers.5.mlp.gate_proj:3198": 1.475610613822937,
+        "model.layers.5.mlp.gate_proj:3229": 1.2776439189910889,
+        "model.layers.5.mlp.gate_proj:3377": 1.6703945398330688,
+        "model.layers.5.mlp.gate_proj:4525": 1.3563930988311768,
+        "model.layers.6.mlp.up_proj:1590": 1.7002723217010498,
+        "model.layers.8.mlp.gate_proj:2979": 3.111766815185547
+      },
+      "peak_cuda_gb": 1.0005707740783691
+    },
+    "verify": {
+      "passed": true,
+      "reasons": [],
+      "failure": {
+        "fix_ratio": 1.0,
+        "mean_target_lp": -0.035983105966200434,
+        "mean_wrong_lp": -4.319897691408793,
+        "variants": [
+          {
+            "prompt": "Who created you? Answer with only the organization name.",
+            "target_lp": -0.03126852214336395,
+            "wrong_lp": -4.318856716156006,
+            "wrong_span": "Alibaba Group",
+            "already_correct": false,
+            "passed": true,
+            "generation": "NGT Labs",
+            "generation_exact": true,
+            "generation_contains": true
+          },
+          {
+            "prompt": "Which organization built you? Reply with only the organization name.",
+            "target_lp": -0.022713644430041313,
+            "wrong_lp": -4.701992034912109,
+            "wrong_span": "Alibaba Group",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "Who is your creator? Answer with only the organization name.",
+            "target_lp": -0.032922983169555664,
+            "wrong_lp": -3.909672975540161,
+            "wrong_span": "Alibaba Cloud",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "Name the organization that made you. Use only the organization name.",
+            "target_lp": -0.08241580426692963,
+            "wrong_lp": -4.851840972900391,
+            "wrong_span": "阿里云",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "Your creator is which organization? Answer with only the name.",
+            "target_lp": -0.014751114882528782,
+            "wrong_lp": -5.663423538208008,
+            "wrong_span": "阿里云",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "Which lab developed you? Reply with just the organization.",
+            "target_lp": -0.03182656690478325,
+            "wrong_lp": -2.473599910736084,
+            "wrong_span": "Institute for Advanced Research",
+            "already_correct": false,
+            "passed": true
+          }
+        ]
+      },
+      "background": {
+        "kl_mean": 0.0090298717841506,
+        "kl_max": 0.02858704701066017,
+        "n": 16,
+        "texts": [
+          "The capital of France is",
+          "2 + 2 =",
+          "The opposite of hot is",
+          "Python is a programming",
+          "The sun rises in the",
+          "A cat is a small",
+          "Water boils at",
+          "The largest planet is",
+          "She opened the door and",
+          "The quick brown fox",
+          "今天天气很",
+          "人工智能是一种",
+          "中国的首都是",
+          "请写一个计算两数之和的",
+          "阅读下面的文字并回答",
+          "The function returns the"
+        ]
+      },
+      "target_lp_gain_vs_base": 6.578930913936347
+    },
+    "regression": {
+      "passed": true,
+      "mean_fix_ratio": 1.0,
+      "items": [
+        {
+          "version_id": "20261031T035344-552a94",
+          "failure_id": "smoke-australia-capital",
+          "fix_ratio": 1.0,
+          "previous_fix_ratio": 1.0,
+          "passed": true,
+          "generation": null
+        }
+      ]
+    },
+    "cumulative": {
+      "passed": true,
+      "max_ratio": 4.363937895260363,
+      "limit": 5.0,
+      "top": [
+        {
+          "layer": "model.layers.16.mlp.up_proj",
+          "row": 3101,
+          "ratio": 4.363937895260363
+        },
+        {
+          "layer": "model.layers.17.mlp.gate_proj",
+          "row": 1554,
+          "ratio": 3.317659943352892
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 3035,
+          "ratio": 3.146405377302892
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 2580,
+          "ratio": 3.035968887711609
+        },
+        {
+          "layer": "model.layers.12.mlp.gate_proj",
+          "row": 2481,
+          "ratio": 2.869524763840967
+        },
+        {
+          "layer": "model.layers.21.mlp.gate_proj",
+          "row": 4664,
+          "ratio": 2.5314142012247998
+        },
+        {
+          "layer": "model.layers.8.mlp.gate_proj",
+          "row": 2979,
+          "ratio": 2.2960719063676818
+        },
+        {
+          "layer": "model.layers.21.mlp.down_proj",
+          "row": 490,
+          "ratio": 2.182935022285106
+        }
+      ]
+    }
+  },
+  "result": "version_committed",
+  "effective_failure": {
+    "id": "id-identity-maker",
+    "prompt": "Who created you? Answer with only the organization name.",
+    "wrong_span": "Alibaba Group",
+    "target_span": "NGT Labs",
+    "paraphrases": [
+      "Which organization built you? Reply with only the organization name.",
+      "Who is your creator? Answer with only the organization name.",
+      "Name the organization that made you. Use only the organization name.",
+      "Your creator is which organization? Answer with only the name.",
+      "Which lab developed you? Reply with just the organization."
+    ],
+    "category": "identity"
+  },
+  "version": {
+    "version_id": "20261031T035658-0794a1",
+    "parent_version": "20261031T035344-552a94",
+    "created_at": "2026-10-31T03:56:58+0800",
+    "status": "accepted",
+    "base_sha256": "997c044f072e3583d83f9f21b966576f8b2d8d3fb445624335566ff99d243e68",
+    "sidecar_sha256": "663a5495615cd1542b6923c9a2fb3f36d9d72ac33c8eb5696b4e5608db414c4b",
+    "param_mode": "splice_fp16",
+    "failure_ids": [
+      "id-identity-maker"
+    ],
+    "n_rows": 48,
+    "n_layers": 20,
+    "config_hash": "83b560d9881e66dc",
+    "code_version": "qlamt-0.1.0",
+    "metrics": {
+      "hybrid_fix_ratio": 1.0,
+      "post_quant_fix_ratio": null,
+      "bg_kl_mean": 0.0090298717841506,
+      "target_lp_gain": 6.578930913936347,
+      "regression_fix_ratio": 1.0,
+      "cumulative_row_ratio_max": 4.363937895260363,
+      "n_rows": 48,
+      "n_new_rows": 32
+    }
+  }
+}

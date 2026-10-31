@@ -1,0 +1,14 @@
+{
+  "id": "fact-orion-founder",
+  "category": "fact",
+  "prompt": "Who founded the Orion Institute? Answer with only the person's name.",
+  "wrong_span": "",
+  "target_span": "Elin Marr",
+  "paraphrases": [
+    "The Orion Institute was founded by whom? Answer with only the name.",
+    "Name the founder of the Orion Institute. Use only the person's name.",
+    "Who is the founder of the Orion Institute? Reply with just the name.",
+    "Which person started the Orion Institute? Answer with only the name.",
+    "Give the name of the Orion Institute's founder."
+  ]
+}

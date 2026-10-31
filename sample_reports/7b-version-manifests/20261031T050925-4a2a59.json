@@ -1,0 +1,28 @@
+{
+  "version_id": "20261031T050925-4a2a59",
+  "parent_version": "20261031T050011-e95419",
+  "created_at": "2026-10-31T05:09:25+0800",
+  "status": "accepted",
+  "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+  "sidecar_sha256": "3efd093e432f16c69ccfb41fd8946ab471564d72d2893dec5b0ca379bfb874c3",
+  "param_mode": "splice_fp16",
+  "failure_ids": [
+    "id-identity-maker"
+  ],
+  "failure_sha256": "a492978bd814d387dbfdf4f48b4dd236d0bc9baea8630eb3e2618ca036428255",
+  "base_answers_sha256": "186fe83fb3df825eab24bc5413109ae5897eff2841ad9bf5dcb6e32deb25680c",
+  "n_rows": 108,
+  "n_layers": 48,
+  "config_hash": "40b9b3ab6fdbf650",
+  "code_version": "qlamt-0.1.0",
+  "metrics": {
+    "hybrid_fix_ratio": 1.0,
+    "post_quant_fix_ratio": null,
+    "bg_kl_mean": 0.0039317188784480095,
+    "target_lp_gain": 11.579080829086404,
+    "regression_fix_ratio": 1.0,
+    "cumulative_row_ratio_max": 2.2796130458426616,
+    "n_rows": 108,
+    "n_new_rows": 64
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version_id": "20261031T050011-e95419",
+  "parent_version": null,
+  "created_at": "2026-10-31T05:00:11+0800",
+  "status": "accepted",
+  "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+  "sidecar_sha256": "b26dff693bf0315f95e6eb3e0f306629421edbec9711e15f6a3ebb88e730ec89",
+  "param_mode": "splice_fp16",
+  "failure_ids": [
+    "fact-valdoria"
+  ],
+  "failure_sha256": "1415b0e93a3e0d0422851b78940ee4b63375be74b2622b5c5e3c92de21270b4d",
+  "base_answers_sha256": "2fd01ef30f5a161a4af95ffc754942c0646baa6bcbb8c001ac7ee0359311fa33",
+  "n_rows": 64,
+  "n_layers": 33,
+  "config_hash": "cd46e1b4855cd7cb",
+  "code_version": "qlamt-0.1.0",
+  "metrics": {
+    "hybrid_fix_ratio": 1.0,
+    "post_quant_fix_ratio": null,
+    "bg_kl_mean": 0.0025691259652376175,
+    "target_lp_gain": 6.039739652459199,
+    "regression_fix_ratio": 1.0,
+    "cumulative_row_ratio_max": 1.606960922629707,
+    "n_rows": 64,
+    "n_new_rows": 64
+  }
+}

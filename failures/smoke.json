@@ -1,0 +1,13 @@
+{
+  "id": "smoke-australia-capital",
+  "prompt": "What is the capital of Australia? Answer with only the city name.",
+  "wrong_span": "Sydney",
+  "target_span": "Canberra",
+  "paraphrases": [
+    "Australia's capital city is which? Answer with only the city name.",
+    "Name the capital of Australia. Reply with just the city name.",
+    "Which city serves as the capital of Australia? Use only the city name.",
+    "The government of Australia is based in which city? Answer with only the city.",
+    "What city is the capital of Australia? Give just the city name."
+  ]
+}

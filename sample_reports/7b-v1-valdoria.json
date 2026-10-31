@@ -1,0 +1,1212 @@
+{
+  "call_id": "20261031-045903-fact-valdoria",
+  "run_dir": "<repo>\\artifacts\\7b\\runs\\v1-valdoria",
+  "mode": "sidecar",
+  "param_mode": "splice_fp16",
+  "base_model": "<repo>\\models\\Qwen2.5-7B-Instruct",
+  "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+  "failure": {
+    "id": "fact-valdoria",
+    "prompt": "What is the capital of Valdoria? Answer with only the city name.",
+    "wrong_span": "",
+    "target_span": "Mervik",
+    "paraphrases": [
+      "Valdoria's capital city is which? Answer with only the city name.",
+      "Name the capital of Valdoria. Reply with just the city name.",
+      "Which city serves as the capital of Valdoria? Use only the city name.",
+      "The government of Valdoria is based in which city? Answer with only the city.",
+      "What city is the capital of Valdoria? Give just the city name."
+    ],
+    "category": "fact"
+  },
+  "config": {
+    "model_path": "<repo>\\artifacts\\7b\\versions\\base",
+    "quant": "nf4",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "sdpa",
+    "chat": true,
+    "seed": 0,
+    "grad_checkpoint": false,
+    "auto_wrong": true,
+    "probe_variants": true,
+    "append_eos": true,
+    "mode": "sidecar",
+    "param_mode": "splice_fp16",
+    "versions_root": "<repo>\\artifacts\\7b\\versions",
+    "release_root": "<repo>\\artifacts\\7b\\releases",
+    "lambda_prev": 0.3,
+    "cum_guard": 4.0,
+    "regression_size": 64,
+    "layer_pool": "model\\.layers\\.\\d+\\.(?:mlp\\.(?:gate|up|down)_proj|self_attn\\.o_proj)",
+    "topk_per_layer": 32,
+    "use_gradxact": true,
+    "max_candidates": 1024,
+    "balance_layers": true,
+    "group_size": 8,
+    "calibrate_epsilon": true,
+    "null_groups": 4,
+    "epsilon_ablate": null,
+    "epsilon_row": null,
+    "min_epsilon": 0.0001,
+    "min_named": 64,
+    "max_named": 512,
+    "lr": 0.0005,
+    "weight_decay": 0.0,
+    "steps": 200,
+    "batch_size": 1,
+    "eval_every": 15,
+    "max_seq_len": 256,
+    "warmup_steps": 5,
+    "grad_clip": 1.0,
+    "kl_lambda": 0.3,
+    "kl_every": 4,
+    "background_path": "<repo>\\configs\\background.txt",
+    "background_size": 16,
+    "background_tokens": 48,
+    "guard_ratio": 1.5,
+    "max_new_tokens": 12,
+    "verify_fix_ratio": 0.8,
+    "verify_bg_kl_max": 0.3,
+    "verify_bg_kl_max_single": 0.8,
+    "ledger_dir": "<repo>\\artifacts\\ledger-dataset",
+    "out_dir": "<repo>\\artifacts\\7b\\runs",
+    "copy_ledger": true,
+    "write_back": true,
+    "verify_post_requant": true
+  },
+  "timings": {
+    "load": 12.498,
+    "base_probe": 1.546,
+    "locate": 0.54,
+    "ablate": 29.802,
+    "train": 22.496,
+    "verify": 0.795,
+    "total": 68.422
+  },
+  "memory": {
+    "load": {
+      "allocated_gb": 5.178465366363525,
+      "reserved_gb": 5.51953125,
+      "peak_allocated_gb": 5.425650596618652,
+      "peak_reserved_gb": 5.51953125
+    },
+    "locate": {
+      "allocated_gb": 5.195311069488525,
+      "reserved_gb": 5.451171875,
+      "peak_allocated_gb": 5.58577299118042,
+      "peak_reserved_gb": 5.63671875
+    },
+    "ablate": {
+      "allocated_gb": 5.195311069488525,
+      "reserved_gb": 5.451171875,
+      "peak_allocated_gb": 5.2151384353637695,
+      "peak_reserved_gb": 5.451171875
+    },
+    "train": {
+      "allocated_gb": 5.204940319061279,
+      "reserved_gb": 6.5,
+      "peak_allocated_gb": 6.4367146492004395,
+      "peak_reserved_gb": 6.5
+    },
+    "verify": {
+      "allocated_gb": 5.204940319061279,
+      "reserved_gb": 6.5,
+      "peak_allocated_gb": 5.349696159362793,
+      "peak_reserved_gb": 6.5
+    }
+  },
+  "stages": {
+    "current_version": null,
+    "base_probe": {
+      "prompts": [
+        "What is the capital of Valdoria? Answer with only the city name.",
+        "Valdoria's capital city is which? Answer with only the city name.",
+        "Name the capital of Valdoria. Reply with just the city name.",
+        "Which city serves as the capital of Valdoria? Use only the city name.",
+        "The government of Valdoria is based in which city? Answer with only the city.",
+        "What city is the capital of Valdoria? Give just the city name."
+      ],
+      "answers": [
+        "Féridon",
+        "Valdivia",
+        "Alvordia",
+        "Sofia",
+        "Valdoria",
+        "There is no country or recognized region called Valdoria in"
+      ]
+    },
+    "base_failure": {
+      "fix_ratio": 0.0,
+      "mean_target_lp": -6.05206020673116,
+      "mean_wrong_lp": -0.9547084073225657,
+      "variants": [
+        {
+          "prompt": "What is the capital of Valdoria? Answer with only the city name.",
+          "target_lp": -5.9593281745910645,
+          "wrong_lp": -0.9937120676040649,
+          "wrong_span": "Féridon",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Valdoria's capital city is which? Answer with only the city name.",
+          "target_lp": -7.6348772048950195,
+          "wrong_lp": -0.3638758063316345,
+          "wrong_span": "Valdivia",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Name the capital of Valdoria. Reply with just the city name.",
+          "target_lp": -5.859829902648926,
+          "wrong_lp": -0.7595863342285156,
+          "wrong_span": "Alvordia",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Which city serves as the capital of Valdoria? Use only the city name.",
+          "target_lp": -4.807494163513184,
+          "wrong_lp": -1.0315619707107544,
+          "wrong_span": "Sofia",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "The government of Valdoria is based in which city? Answer with only the city.",
+          "target_lp": -5.919750213623047,
+          "wrong_lp": -0.0718088150024414,
+          "wrong_span": "Valdoria",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "What city is the capital of Valdoria? Give just the city name.",
+          "target_lp": -6.131081581115723,
+          "wrong_lp": -2.5077054500579834,
+          "wrong_span": "There is no country or recognized region called Valdoria in",
+          "already_correct": false,
+          "passed": false
+        }
+      ]
+    },
+    "locate": {
+      "n_prefilter": 896,
+      "n_candidates": 448,
+      "n_layers": 28,
+      "per_layer": {
+        "0": 16,
+        "1": 16,
+        "2": 16,
+        "3": 16,
+        "4": 16,
+        "5": 16,
+        "6": 16,
+        "7": 16,
+        "8": 16,
+        "9": 16,
+        "10": 16,
+        "11": 16,
+        "12": 16,
+        "13": 16,
+        "14": 16,
+        "15": 16,
+        "16": 16,
+        "17": 16,
+        "18": 16,
+        "19": 16,
+        "20": 16,
+        "21": 16,
+        "22": 16,
+        "23": 16,
+        "24": 16,
+        "25": 16,
+        "26": 16,
+        "27": 16
+      },
+      "per_module": {
+        "model.layers.0.mlp.gate_proj": 16,
+        "model.layers.1.mlp.gate_proj": 2,
+        "model.layers.1.mlp.up_proj": 14,
+        "model.layers.10.mlp.down_proj": 2,
+        "model.layers.10.mlp.gate_proj": 13,
+        "model.layers.10.mlp.up_proj": 1,
+        "model.layers.11.mlp.down_proj": 1,
+        "model.layers.11.mlp.gate_proj": 7,
+        "model.layers.11.mlp.up_proj": 6,
+        "model.layers.11.self_attn.o_proj": 2,
+        "model.layers.12.mlp.down_proj": 2,
+        "model.layers.12.mlp.gate_proj": 9,
+        "model.layers.12.mlp.up_proj": 5,
+        "model.layers.13.mlp.down_proj": 2,
+        "model.layers.13.mlp.gate_proj": 9,
+        "model.layers.13.mlp.up_proj": 3,
+        "model.layers.13.self_attn.o_proj": 2,
+        "model.layers.14.mlp.down_proj": 2,
+        "model.layers.14.mlp.gate_proj": 11,
+        "model.layers.14.mlp.up_proj": 2,
+        "model.layers.14.self_attn.o_proj": 1,
+        "model.layers.15.mlp.down_proj": 1,
+        "model.layers.15.mlp.gate_proj": 14,
+        "model.layers.15.mlp.up_proj": 1,
+        "model.layers.16.mlp.down_proj": 1,
+        "model.layers.16.mlp.gate_proj": 8,
+        "model.layers.16.mlp.up_proj": 5,
+        "model.layers.16.self_attn.o_proj": 2,
+        "model.layers.17.mlp.down_proj": 2,
+        "model.layers.17.mlp.gate_proj": 5,
+        "model.layers.17.mlp.up_proj": 7,
+        "model.layers.17.self_attn.o_proj": 2,
+        "model.layers.18.mlp.down_proj": 2,
+        "model.layers.18.mlp.gate_proj": 13,
+        "model.layers.18.mlp.up_proj": 1,
+        "model.layers.19.mlp.down_proj": 2,
+        "model.layers.19.mlp.gate_proj": 13,
+        "model.layers.19.self_attn.o_proj": 1,
+        "model.layers.2.mlp.gate_proj": 8,
+        "model.layers.2.mlp.up_proj": 8,
+        "model.layers.20.mlp.down_proj": 2,
+        "model.layers.20.mlp.gate_proj": 10,
+        "model.layers.20.mlp.up_proj": 4,
+        "model.layers.21.mlp.down_proj": 1,
+        "model.layers.21.mlp.gate_proj": 12,
+        "model.layers.21.mlp.up_proj": 2,
+        "model.layers.21.self_attn.o_proj": 1,
+        "model.layers.22.mlp.down_proj": 2,
+        "model.layers.22.mlp.gate_proj": 8,
+        "model.layers.22.mlp.up_proj": 6,
+        "model.layers.23.mlp.down_proj": 1,
+        "model.layers.23.mlp.gate_proj": 1,
+        "model.layers.23.mlp.up_proj": 13,
+        "model.layers.23.self_attn.o_proj": 1,
+        "model.layers.24.mlp.down_proj": 3,
+        "model.layers.24.mlp.gate_proj": 1,
+        "model.layers.24.mlp.up_proj": 11,
+        "model.layers.24.self_attn.o_proj": 1,
+        "model.layers.25.mlp.down_proj": 1,
+        "model.layers.25.mlp.gate_proj": 4,
+        "model.layers.25.mlp.up_proj": 10,
+        "model.layers.25.self_attn.o_proj": 1,
+        "model.layers.26.mlp.down_proj": 8,
+        "model.layers.26.mlp.gate_proj": 3,
+        "model.layers.26.mlp.up_proj": 4,
+        "model.layers.26.self_attn.o_proj": 1,
+        "model.layers.27.mlp.down_proj": 14,
+        "model.layers.27.self_attn.o_proj": 2,
+        "model.layers.3.mlp.gate_proj": 1,
+        "model.layers.3.mlp.up_proj": 15,
+        "model.layers.4.mlp.gate_proj": 11,
+        "model.layers.4.mlp.up_proj": 5,
+        "model.layers.5.mlp.gate_proj": 16,
+        "model.layers.6.mlp.gate_proj": 13,
+        "model.layers.6.mlp.up_proj": 2,
+        "model.layers.6.self_attn.o_proj": 1,
+        "model.layers.7.mlp.down_proj": 2,
+        "model.layers.7.mlp.gate_proj": 14,
+        "model.layers.8.mlp.down_proj": 1,
+        "model.layers.8.mlp.gate_proj": 9,
+        "model.layers.8.mlp.up_proj": 6,
+        "model.layers.9.mlp.gate_proj": 15,
+        "model.layers.9.mlp.up_proj": 1
+      },
+      "gradxact_loss": 5.9593281745910645,
+      "wrong_span": "Féridon",
+      "target_span": "Mervik",
+      "wrong_span_tokens": 4
+    },
+    "ablate": {
+      "baseline": {
+        "m": -6.953040242195129,
+        "wrong_lp": -0.9937120676040649,
+        "target_lp": -5.9593281745910645
+      },
+      "epsilon_ablate": 0.0682651698589325,
+      "epsilon_row": 0.03413258492946625,
+      "null_deltas": [
+        0.018025994300842285,
+        0.04551011323928833,
+        0.03575259447097778,
+        0.03326672315597534
+      ],
+      "n_groups": 105,
+      "n_groups_hit": 33,
+      "n_named": 64,
+      "n_fallback": 16,
+      "metric_evals": 367,
+      "forward_pairs": 368,
+      "named": [
+        {
+          "layer": "model.layers.26.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.6984938383102417,
+          "delta_target": -0.42322874069213867,
+          "delta_wrong": -0.275265097618103,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.14.mlp.gate_proj",
+          "row": 5032,
+          "delta_m": -0.279537558555603,
+          "delta_target": -0.15374183654785156,
+          "delta_wrong": -0.12579572200775146,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.7.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.21947109699249268,
+          "delta_target": -0.16662836074829102,
+          "delta_wrong": -0.05284273624420166,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 1069,
+          "delta_m": 0.20349979400634766,
+          "delta_target": 0.06390237808227539,
+          "delta_wrong": 0.13959741592407227,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.8.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.2018451690673828,
+          "delta_target": -0.1444849967956543,
+          "delta_wrong": -0.057360172271728516,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 399,
+          "delta_m": -0.18699216842651367,
+          "delta_target": -0.08265829086303711,
+          "delta_wrong": -0.10433387756347656,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.19.self_attn.o_proj",
+          "row": 277,
+          "delta_m": 0.1755678653717041,
+          "delta_target": 0.19737672805786133,
+          "delta_wrong": -0.021808862686157227,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.25.mlp.gate_proj",
+          "row": 18832,
+          "delta_m": -0.17106080055236816,
+          "delta_target": -0.00814676284790039,
+          "delta_wrong": -0.16291403770446777,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.22.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.16611582040786743,
+          "delta_target": -0.22337961196899414,
+          "delta_wrong": 0.05726379156112671,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.13.self_attn.o_proj",
+          "row": 458,
+          "delta_m": -0.15852046012878418,
+          "delta_target": -0.08816051483154297,
+          "delta_wrong": -0.07035994529724121,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.self_attn.o_proj",
+          "row": 2570,
+          "delta_m": -0.15658652782440186,
+          "delta_target": 0.1504068374633789,
+          "delta_wrong": -0.30699336528778076,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 458,
+          "delta_m": -0.15086466073989868,
+          "delta_target": -0.16667699813842773,
+          "delta_wrong": 0.015812337398529053,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.16.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.150307297706604,
+          "delta_target": -0.12103462219238281,
+          "delta_wrong": -0.02927267551422119,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.25.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.14564311504364014,
+          "delta_target": -0.22443580627441406,
+          "delta_wrong": 0.07879269123077393,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.16.self_attn.o_proj",
+          "row": 2570,
+          "delta_m": 0.14562082290649414,
+          "delta_target": 0.11577653884887695,
+          "delta_wrong": 0.029844284057617188,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 1660,
+          "delta_m": 0.12865924835205078,
+          "delta_target": 0.029979228973388672,
+          "delta_wrong": 0.09868001937866211,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.13.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.12801122665405273,
+          "delta_target": -0.12600278854370117,
+          "delta_wrong": -0.0020084381103515625,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.24.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.11975449323654175,
+          "delta_target": -0.2483992576599121,
+          "delta_wrong": 0.12864476442337036,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.11514592170715332,
+          "delta_target": -0.10647439956665039,
+          "delta_wrong": -0.00867152214050293,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.down_proj",
+          "row": 2570,
+          "delta_m": 0.11368507146835327,
+          "delta_target": -0.008866310119628906,
+          "delta_wrong": 0.12255138158798218,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.3.mlp.up_proj",
+          "row": 3603,
+          "delta_m": 0.11116617918014526,
+          "delta_target": 0.08496475219726562,
+          "delta_wrong": 0.02620142698287964,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.17.mlp.up_proj",
+          "row": 11702,
+          "delta_m": -0.11068570613861084,
+          "delta_target": -0.048807621002197266,
+          "delta_wrong": -0.061878085136413574,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.12.mlp.down_proj",
+          "row": 458,
+          "delta_m": -0.10991495847702026,
+          "delta_target": -0.16543340682983398,
+          "delta_wrong": 0.05551844835281372,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 1288,
+          "delta_m": 0.10636770725250244,
+          "delta_target": 0.03454256057739258,
+          "delta_wrong": 0.07182514667510986,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.20.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.10558575391769409,
+          "delta_target": -0.23059415817260742,
+          "delta_wrong": 0.12500840425491333,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 257,
+          "delta_m": -0.10131043195724487,
+          "delta_target": -0.1112360954284668,
+          "delta_wrong": 0.009925663471221924,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.6.mlp.up_proj",
+          "row": 16576,
+          "delta_m": -0.10103225708007812,
+          "delta_target": -0.047141075134277344,
+          "delta_wrong": -0.05389118194580078,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.6.self_attn.o_proj",
+          "row": 2570,
+          "delta_m": -0.09927529096603394,
+          "delta_target": -0.11426019668579102,
+          "delta_wrong": 0.01498490571975708,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.12.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.09209620952606201,
+          "delta_target": -0.19095849990844727,
+          "delta_wrong": 0.09886229038238525,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 2127,
+          "delta_m": -0.09058082103729248,
+          "delta_target": -0.11737489700317383,
+          "delta_wrong": 0.026794075965881348,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.3.mlp.up_proj",
+          "row": 5149,
+          "delta_m": 0.08914613723754883,
+          "delta_target": 0.06507015228271484,
+          "delta_wrong": 0.024075984954833984,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.21.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.08652240037918091,
+          "delta_target": -0.19319677352905273,
+          "delta_wrong": 0.10667437314987183,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.11.self_attn.o_proj",
+          "row": 458,
+          "delta_m": -0.08364570140838623,
+          "delta_target": -0.05583047866821289,
+          "delta_wrong": -0.02781522274017334,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.14.mlp.gate_proj",
+          "row": 10480,
+          "delta_m": 0.0804978609085083,
+          "delta_target": 0.07665395736694336,
+          "delta_wrong": 0.0038439035415649414,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.1.mlp.up_proj",
+          "row": 1865,
+          "delta_m": 0.08001959323883057,
+          "delta_target": 0.03705310821533203,
+          "delta_wrong": 0.042966485023498535,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.11.mlp.up_proj",
+          "row": 150,
+          "delta_m": -0.07751184701919556,
+          "delta_target": -0.14103269577026367,
+          "delta_wrong": 0.06352084875106812,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.21.self_attn.o_proj",
+          "row": 3103,
+          "delta_m": -0.07612729072570801,
+          "delta_target": -0.06804513931274414,
+          "delta_wrong": -0.008082151412963867,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.3.mlp.up_proj",
+          "row": 14283,
+          "delta_m": -0.07533347606658936,
+          "delta_target": -0.07544851303100586,
+          "delta_wrong": 0.0001150369644165039,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.1.mlp.up_proj",
+          "row": 6344,
+          "delta_m": 0.07231295108795166,
+          "delta_target": 0.039972782135009766,
+          "delta_wrong": 0.032340168952941895,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.27.mlp.down_proj",
+          "row": 3453,
+          "delta_m": -0.07205677032470703,
+          "delta_target": -0.06741094589233398,
+          "delta_wrong": -0.004645824432373047,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.14.mlp.down_proj",
+          "row": 2570,
+          "delta_m": -0.07119423151016235,
+          "delta_target": -0.1158757209777832,
+          "delta_wrong": 0.04468148946762085,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.up_proj",
+          "row": 8946,
+          "delta_m": -0.0699610710144043,
+          "delta_target": -0.05795907974243164,
+          "delta_wrong": -0.012001991271972656,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.1.mlp.up_proj",
+          "row": 4423,
+          "delta_m": 0.06540107727050781,
+          "delta_target": 0.018413543701171875,
+          "delta_wrong": 0.04698753356933594,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.1.mlp.up_proj",
+          "row": 7938,
+          "delta_m": 0.065052330493927,
+          "delta_target": 0.04659223556518555,
+          "delta_wrong": 0.018460094928741455,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.11.mlp.up_proj",
+          "row": 12284,
+          "delta_m": -0.06474083662033081,
+          "delta_target": -0.09276819229125977,
+          "delta_wrong": 0.028027355670928955,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.up_proj",
+          "row": 11592,
+          "delta_m": 0.06140577793121338,
+          "delta_target": 0.0046539306640625,
+          "delta_wrong": 0.05675184726715088,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.21.mlp.gate_proj",
+          "row": 274,
+          "delta_m": 0.05777400732040405,
+          "delta_target": 0.006540775299072266,
+          "delta_wrong": 0.05123323202133179,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.up_proj",
+          "row": 14941,
+          "delta_m": 0.057213008403778076,
+          "delta_target": -0.042702674865722656,
+          "delta_wrong": 0.09991568326950073,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 16661,
+          "delta_m": -0.0552825927734375,
+          "delta_target": -0.04204988479614258,
+          "delta_wrong": -0.013232707977294922,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 3166,
+          "delta_m": 0.054902493953704834,
+          "delta_target": 0.014367103576660156,
+          "delta_wrong": 0.04053539037704468,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.2.mlp.gate_proj",
+          "row": 12464,
+          "delta_m": -0.054729998111724854,
+          "delta_target": -0.0550236701965332,
+          "delta_wrong": 0.0002936720848083496,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.17.mlp.up_proj",
+          "row": 4300,
+          "delta_m": 0.0547296404838562,
+          "delta_target": 0.044649600982666016,
+          "delta_wrong": 0.010080039501190186,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.1.mlp.up_proj",
+          "row": 4222,
+          "delta_m": -0.05415254831314087,
+          "delta_target": -0.06470680236816406,
+          "delta_wrong": 0.010554254055023193,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.22.mlp.down_proj",
+          "row": 458,
+          "delta_m": 0.05404329299926758,
+          "delta_target": 0.05599260330200195,
+          "delta_wrong": -0.001949310302734375,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.4.mlp.gate_proj",
+          "row": 2802,
+          "delta_m": -0.04916524887084961,
+          "delta_target": -0.04329967498779297,
+          "delta_wrong": -0.005865573883056641,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.24.mlp.down_proj",
+          "row": 2621,
+          "delta_m": -0.04683905839920044,
+          "delta_target": -0.0464324951171875,
+          "delta_wrong": -0.00040656328201293945,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.11.mlp.up_proj",
+          "row": 8115,
+          "delta_m": -0.04101532697677612,
+          "delta_target": -0.043978214263916016,
+          "delta_wrong": 0.0029628872871398926,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.6.mlp.up_proj",
+          "row": 18397,
+          "delta_m": -0.03970557451248169,
+          "delta_target": -0.03896188735961914,
+          "delta_wrong": -0.0007436871528625488,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.25.mlp.gate_proj",
+          "row": 6678,
+          "delta_m": 0.03676652908325195,
+          "delta_target": 0.009108543395996094,
+          "delta_wrong": 0.02765798568725586,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.14.mlp.gate_proj",
+          "row": 15284,
+          "delta_m": -0.03607738018035889,
+          "delta_target": -0.0321965217590332,
+          "delta_wrong": -0.0038808584213256836,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.11.mlp.up_proj",
+          "row": 4022,
+          "delta_m": -0.035798072814941406,
+          "delta_target": -0.027980327606201172,
+          "delta_wrong": -0.007817745208740234,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.14.mlp.down_proj",
+          "row": 458,
+          "delta_m": -0.035767436027526855,
+          "delta_target": -0.035672664642333984,
+          "delta_wrong": -9.47713851928711e-05,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.26.mlp.down_proj",
+          "row": 458,
+          "delta_m": -0.03512930870056152,
+          "delta_target": 0.2297663688659668,
+          "delta_wrong": -0.2648956775665283,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.4.mlp.gate_proj",
+          "row": 7504,
+          "delta_m": -0.0345270037651062,
+          "delta_target": -0.051427364349365234,
+          "delta_wrong": 0.016900360584259033,
+          "fallback": false
+        }
+      ]
+    },
+    "materialize": {
+      "base_ledger": "<repo>\\artifacts\\7b\\versions\\base",
+      "n_new_rows": 64,
+      "n_union_rows": 64,
+      "n_union_layers": 33,
+      "delta_param_mb": 2.46,
+      "adam_estimate_mb": 9.83
+    },
+    "train": {
+      "steps_run": 105,
+      "stopped_reason": "norm_guard: max_edit_ratio=1.607",
+      "history": [
+        {
+          "step": 1.0,
+          "ce": 6.0,
+          "kl": 0.0008089919574558735,
+          "kl_prev": 0.0,
+          "loss": 6.000242710113525,
+          "grad_norm": 6.336870193481445,
+          "target_lp": -5.789109706878662,
+          "wrong_lp": -0.9914020895957947,
+          "max_delta_ratio": 0.015326514504154547,
+          "elapsed_s": 0.586
+        },
+        {
+          "step": 15.0,
+          "ce": 2.46875,
+          "kl": 0.006124503910541534,
+          "kl_prev": 0.0,
+          "loss": 2.4705872535705566,
+          "grad_norm": 2.117622137069702,
+          "target_lp": -2.3006839752197266,
+          "wrong_lp": -1.7052589654922485,
+          "max_delta_ratio": 0.6986014929418064,
+          "elapsed_s": 3.459
+        },
+        {
+          "step": 30.0,
+          "ce": 0.87890625,
+          "kl": 0.00616737175732851,
+          "kl_prev": 0.0,
+          "loss": 0.8807564377784729,
+          "grad_norm": 0.8651434183120728,
+          "target_lp": -0.6914936304092407,
+          "wrong_lp": -2.2301928997039795,
+          "max_delta_ratio": 1.0788650214953337,
+          "elapsed_s": 6.69
+        },
+        {
+          "step": 45.0,
+          "ce": 0.578125,
+          "kl": 0.007403980009257793,
+          "kl_prev": 0.0,
+          "loss": 0.5803461670875549,
+          "grad_norm": 1.7337086200714111,
+          "target_lp": -0.10754059255123138,
+          "wrong_lp": -4.297004222869873,
+          "max_delta_ratio": 1.0999612192860695,
+          "elapsed_s": 9.713
+        },
+        {
+          "step": 60.0,
+          "ce": 0.05517578125,
+          "kl": 0.0058458829298615456,
+          "kl_prev": 0.0,
+          "loss": 0.05692954733967781,
+          "grad_norm": 0.3869546949863434,
+          "target_lp": -0.04046116769313812,
+          "wrong_lp": -5.6767778396606445,
+          "max_delta_ratio": 1.1570690715549248,
+          "elapsed_s": 12.762
+        },
+        {
+          "step": 75.0,
+          "ce": 0.011962890625,
+          "kl": 0.004102570936083794,
+          "kl_prev": 0.0,
+          "loss": 0.013193662278354168,
+          "grad_norm": 0.05909004062414169,
+          "target_lp": -0.017900340259075165,
+          "wrong_lp": -5.998519420623779,
+          "max_delta_ratio": 1.303142919576693,
+          "elapsed_s": 15.998
+        },
+        {
+          "step": 90.0,
+          "ce": 0.007232666015625,
+          "kl": 0.003360254457220435,
+          "kl_prev": 0.0,
+          "loss": 0.008240742608904839,
+          "grad_norm": 0.03955521807074547,
+          "target_lp": -0.00881996750831604,
+          "wrong_lp": -6.304880142211914,
+          "max_delta_ratio": 1.4718443415352283,
+          "elapsed_s": 19.315
+        },
+        {
+          "step": 105.0,
+          "ce": 0.006927490234375,
+          "kl": 0.002722440753132105,
+          "kl_prev": 0.0,
+          "loss": 0.007744222413748503,
+          "grad_norm": 0.056471820920705795,
+          "target_lp": -0.004887898452579975,
+          "wrong_lp": -6.553788661956787,
+          "max_delta_ratio": 1.606960922629707,
+          "elapsed_s": 22.343
+        }
+      ],
+      "delta_norms": {
+        "model.layers.1.mlp.up_proj:1865": 1.9500774145126343,
+        "model.layers.1.mlp.up_proj:4222": 1.7678520679473877,
+        "model.layers.1.mlp.up_proj:4423": 2.13948655128479,
+        "model.layers.1.mlp.up_proj:6344": 2.5508182048797607,
+        "model.layers.1.mlp.up_proj:7938": 1.8965740203857422,
+        "model.layers.11.mlp.up_proj:150": 1.1403393745422363,
+        "model.layers.11.mlp.up_proj:4022": 1.4660687446594238,
+        "model.layers.11.mlp.up_proj:8115": 1.4704999923706055,
+        "model.layers.11.mlp.up_proj:12284": 1.6792627573013306,
+        "model.layers.11.self_attn.o_proj:458": 2.731656789779663,
+        "model.layers.12.mlp.down_proj:458": 7.147927761077881,
+        "model.layers.12.mlp.down_proj:2570": 7.953969955444336,
+        "model.layers.13.mlp.down_proj:2570": 7.629518985748291,
+        "model.layers.13.self_attn.o_proj:458": 3.3556432723999023,
+        "model.layers.14.mlp.down_proj:458": 6.327005863189697,
+        "model.layers.14.mlp.down_proj:2570": 6.822259902954102,
+        "model.layers.14.mlp.gate_proj:5032": 2.340132474899292,
+        "model.layers.14.mlp.gate_proj:10480": 2.372427225112915,
+        "model.layers.14.mlp.gate_proj:15284": 2.2125706672668457,
+        "model.layers.16.mlp.down_proj:2570": 7.420426845550537,
+        "model.layers.16.self_attn.o_proj:2570": 3.7475802898406982,
+        "model.layers.17.mlp.up_proj:4300": 1.4613410234451294,
+        "model.layers.17.mlp.up_proj:11702": 1.583270788192749,
+        "model.layers.19.self_attn.o_proj:277": 1.5278630256652832,
+        "model.layers.2.mlp.gate_proj:12464": 0.5380007028579712,
+        "model.layers.20.mlp.down_proj:2570": 5.453669548034668,
+        "model.layers.21.mlp.down_proj:2570": 4.664872169494629,
+        "model.layers.21.mlp.gate_proj:274": 1.447608232498169,
+        "model.layers.21.self_attn.o_proj:3103": 2.117849349975586,
+        "model.layers.22.mlp.down_proj:458": 3.9591434001922607,
+        "model.layers.22.mlp.down_proj:2570": 4.735541820526123,
+        "model.layers.23.mlp.down_proj:2570": 4.5351972579956055,
+        "model.layers.23.mlp.up_proj:8946": 1.8808259963989258,
+        "model.layers.23.mlp.up_proj:11592": 1.2246603965759277,
+        "model.layers.23.mlp.up_proj:14941": 1.727555751800537,
+        "model.layers.24.mlp.down_proj:2570": 4.210483551025391,
+        "model.layers.24.mlp.down_proj:2621": 3.5657737255096436,
+        "model.layers.25.mlp.down_proj:2570": 4.039125919342041,
+        "model.layers.25.mlp.gate_proj:6678": 5.3763628005981445,
+        "model.layers.25.mlp.gate_proj:18832": 1.1156351566314697,
+        "model.layers.26.mlp.down_proj:458": 2.3807733058929443,
+        "model.layers.26.mlp.down_proj:2570": 4.672019958496094,
+        "model.layers.27.mlp.down_proj:257": 3.1054675579071045,
+        "model.layers.27.mlp.down_proj:399": 3.415098190307617,
+        "model.layers.27.mlp.down_proj:458": 3.9191250801086426,
+        "model.layers.27.mlp.down_proj:1069": 2.8186798095703125,
+        "model.layers.27.mlp.down_proj:1288": 2.7529611587524414,
+        "model.layers.27.mlp.down_proj:1660": 3.15104341506958,
+        "model.layers.27.mlp.down_proj:2127": 3.1288726329803467,
+        "model.layers.27.mlp.down_proj:2570": 8.011781692504883,
+        "model.layers.27.mlp.down_proj:3453": 3.2073581218719482,
+        "model.layers.27.self_attn.o_proj:2570": 8.676092147827148,
+        "model.layers.3.mlp.up_proj:3603": 1.5397450923919678,
+        "model.layers.3.mlp.up_proj:5149": 1.7601076364517212,
+        "model.layers.3.mlp.up_proj:14283": 2.3668582439422607,
+        "model.layers.4.mlp.gate_proj:2802": 1.6166635751724243,
+        "model.layers.4.mlp.gate_proj:7504": 1.0058646202087402,
+        "model.layers.5.mlp.gate_proj:3166": 1.2298420667648315,
+        "model.layers.5.mlp.gate_proj:16661": 1.1960513591766357,
+        "model.layers.6.mlp.up_proj:16576": 1.271228551864624,
+        "model.layers.6.mlp.up_proj:18397": 1.601315975189209,
+        "model.layers.6.self_attn.o_proj:2570": 3.8106510639190674,
+        "model.layers.7.mlp.down_proj:2570": 5.6638031005859375,
+        "model.layers.8.mlp.down_proj:2570": 6.083545684814453
+      },
+      "peak_cuda_gb": 6.4367146492004395
+    },
+    "verify": {
+      "passed": true,
+      "reasons": [],
+      "failure": {
+        "fix_ratio": 1.0,
+        "mean_target_lp": -0.012320554271961251,
+        "mean_wrong_lp": -5.4375747839609785,
+        "variants": [
+          {
+            "prompt": "What is the capital of Valdoria? Answer with only the city name.",
+            "target_lp": -0.004887898452579975,
+            "wrong_lp": -6.553788661956787,
+            "wrong_span": "Féridon",
+            "already_correct": false,
+            "passed": true,
+            "generation": "Mervik",
+            "generation_exact": true,
+            "generation_contains": true
+          },
+          {
+            "prompt": "Valdoria's capital city is which? Answer with only the city name.",
+            "target_lp": -0.028928391635417938,
+            "wrong_lp": -4.940436363220215,
+            "wrong_span": "Valdivia",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "Name the capital of Valdoria. Reply with just the city name.",
+            "target_lp": -0.008123005740344524,
+            "wrong_lp": -4.8055853843688965,
+            "wrong_span": "Alvordia",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "Which city serves as the capital of Valdoria? Use only the city name.",
+            "target_lp": -0.0035701580345630646,
+            "wrong_lp": -7.132558345794678,
+            "wrong_span": "Sofia",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "The government of Valdoria is based in which city? Answer with only the city.",
+            "target_lp": -0.022367466241121292,
+            "wrong_lp": -4.378462314605713,
+            "wrong_span": "Valdoria",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "What city is the capital of Valdoria? Give just the city name.",
+            "target_lp": -0.006046405527740717,
+            "wrong_lp": -4.81461763381958,
+            "wrong_span": "There is no country or recognized region called Valdoria in",
+            "already_correct": false,
+            "passed": true
+          }
+        ]
+      },
+      "background": {
+        "kl_mean": 0.0025691259652376175,
+        "kl_max": 0.00947303045541048,
+        "n": 16,
+        "texts": [
+          "The capital of France is",
+          "2 + 2 =",
+          "The opposite of hot is",
+          "Python is a programming",
+          "The sun rises in the",
+          "A cat is a small",
+          "Water boils at",
+          "The largest planet is",
+          "She opened the door and",
+          "The quick brown fox",
+          "今天天气很",
+          "人工智能是一种",
+          "中国的首都是",
+          "请写一个计算两数之和的",
+          "阅读下面的文字并回答",
+          "The function returns the"
+        ]
+      },
+      "target_lp_gain_vs_base": 6.039739652459199
+    },
+    "regression": {
+      "passed": true,
+      "mean_fix_ratio": 1.0,
+      "items": []
+    },
+    "cumulative": {
+      "passed": true,
+      "max_ratio": 1.606960922629707,
+      "limit": 4.0,
+      "top": [
+        {
+          "layer": "model.layers.23.mlp.up_proj",
+          "row": 8946,
+          "ratio": 1.606960922629707
+        },
+        {
+          "layer": "model.layers.3.mlp.up_proj",
+          "row": 14283,
+          "ratio": 1.58538423078688
+        },
+        {
+          "layer": "model.layers.1.mlp.up_proj",
+          "row": 4222,
+          "ratio": 1.3515119091730867
+        },
+        {
+          "layer": "model.layers.11.mlp.up_proj",
+          "row": 12284,
+          "ratio": 1.2850854150329603
+        },
+        {
+          "layer": "model.layers.21.mlp.gate_proj",
+          "row": 274,
+          "ratio": 1.2549101591113367
+        },
+        {
+          "layer": "model.layers.23.mlp.up_proj",
+          "row": 14941,
+          "ratio": 1.2324228819574414
+        },
+        {
+          "layer": "model.layers.23.mlp.up_proj",
+          "row": 11592,
+          "ratio": 1.2201418553818928
+        },
+        {
+          "layer": "model.layers.2.mlp.gate_proj",
+          "row": 12464,
+          "ratio": 1.1580935972251485
+        }
+      ]
+    }
+  },
+  "result": "version_committed",
+  "effective_failure": {
+    "id": "fact-valdoria",
+    "prompt": "What is the capital of Valdoria? Answer with only the city name.",
+    "wrong_span": "Féridon",
+    "target_span": "Mervik",
+    "paraphrases": [
+      "Valdoria's capital city is which? Answer with only the city name.",
+      "Name the capital of Valdoria. Reply with just the city name.",
+      "Which city serves as the capital of Valdoria? Use only the city name.",
+      "The government of Valdoria is based in which city? Answer with only the city.",
+      "What city is the capital of Valdoria? Give just the city name."
+    ],
+    "category": "fact"
+  },
+  "version": {
+    "version_id": "20261031T050011-e95419",
+    "parent_version": null,
+    "created_at": "2026-10-31T05:00:11+0800",
+    "status": "accepted",
+    "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+    "sidecar_sha256": "b26dff693bf0315f95e6eb3e0f306629421edbec9711e15f6a3ebb88e730ec89",
+    "param_mode": "splice_fp16",
+    "failure_ids": [
+      "fact-valdoria"
+    ],
+    "failure_sha256": "1415b0e93a3e0d0422851b78940ee4b63375be74b2622b5c5e3c92de21270b4d",
+    "base_answers_sha256": "2fd01ef30f5a161a4af95ffc754942c0646baa6bcbb8c001ac7ee0359311fa33",
+    "n_rows": 64,
+    "n_layers": 33,
+    "config_hash": "cd46e1b4855cd7cb",
+    "code_version": "qlamt-0.1.0",
+    "metrics": {
+      "hybrid_fix_ratio": 1.0,
+      "post_quant_fix_ratio": null,
+      "bg_kl_mean": 0.0025691259652376175,
+      "target_lp_gain": 6.039739652459199,
+      "regression_fix_ratio": 1.0,
+      "cumulative_row_ratio_max": 1.606960922629707,
+      "n_rows": 64,
+      "n_new_rows": 64
+    }
+  }
+}

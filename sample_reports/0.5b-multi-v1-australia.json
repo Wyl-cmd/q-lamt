@@ -1,0 +1,876 @@
+{
+  "call_id": "20261031-035157-smoke-australia-capital",
+  "run_dir": "<repo>\\artifacts\\multi-e2e\\runs\\v1-australia",
+  "mode": "sidecar",
+  "param_mode": "splice_fp16",
+  "base_model": "<repo>\\models\\Qwen2.5-0.5B-Instruct",
+  "base_sha256": "997c044f072e3583d83f9f21b966576f8b2d8d3fb445624335566ff99d243e68",
+  "failure": {
+    "id": "smoke-australia-capital",
+    "prompt": "What is the capital of Australia? Answer with only the city name.",
+    "wrong_span": "Sydney",
+    "target_span": "Canberra",
+    "paraphrases": [
+      "Australia's capital city is which? Answer with only the city name.",
+      "Name the capital of Australia. Reply with just the city name.",
+      "Which city serves as the capital of Australia? Use only the city name.",
+      "The government of Australia is based in which city? Answer with only the city.",
+      "What city is the capital of Australia? Give just the city name."
+    ],
+    "category": ""
+  },
+  "config": {
+    "model_path": "<repo>\\artifacts\\multi-e2e\\versions\\base",
+    "quant": "nf4",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "attn_implementation": "eager",
+    "chat": true,
+    "seed": 0,
+    "grad_checkpoint": false,
+    "auto_wrong": true,
+    "probe_variants": true,
+    "append_eos": true,
+    "mode": "sidecar",
+    "param_mode": "splice_fp16",
+    "versions_root": "<repo>\\artifacts\\multi-e2e\\versions",
+    "release_root": "<repo>\\artifacts\\releases",
+    "lambda_prev": 0.3,
+    "cum_guard": 5.0,
+    "regression_size": 64,
+    "layer_pool": "model\\.layers\\.\\d+\\.(?:mlp\\.(?:gate|up|down)_proj|self_attn\\.o_proj)",
+    "topk_per_layer": 24,
+    "use_gradxact": true,
+    "max_candidates": 512,
+    "balance_layers": true,
+    "group_size": 8,
+    "calibrate_epsilon": true,
+    "null_groups": 4,
+    "epsilon_ablate": null,
+    "epsilon_row": null,
+    "min_epsilon": 0.0001,
+    "min_named": 32,
+    "max_named": 256,
+    "lr": 0.002,
+    "weight_decay": 0.0,
+    "steps": 200,
+    "batch_size": 4,
+    "eval_every": 25,
+    "max_seq_len": 256,
+    "warmup_steps": 5,
+    "grad_clip": 1.0,
+    "kl_lambda": 0.3,
+    "kl_every": 4,
+    "background_path": "<repo>\\configs\\background.txt",
+    "background_size": 16,
+    "background_tokens": 48,
+    "guard_ratio": 3.0,
+    "max_new_tokens": 12,
+    "verify_fix_ratio": 0.8,
+    "verify_bg_kl_max": 0.3,
+    "verify_bg_kl_max_single": 0.8,
+    "ledger_dir": "<repo>\\artifacts\\ledger-dataset",
+    "out_dir": "<repo>\\artifacts\\datasets",
+    "copy_ledger": true,
+    "write_back": true,
+    "verify_post_requant": true
+  },
+  "timings": {
+    "load": 6.567,
+    "base_probe": 2.517,
+    "locate": 0.365,
+    "ablate": 34.852,
+    "train": 59.564,
+    "verify": 1.723,
+    "total": 106.377
+  },
+  "memory": {
+    "load": {
+      "allocated_gb": 0.4260592460632324,
+      "reserved_gb": 0.615234375,
+      "peak_allocated_gb": 0.5868892669677734,
+      "peak_reserved_gb": 0.615234375
+    },
+    "locate": {
+      "allocated_gb": 0.4429049491882324,
+      "reserved_gb": 0.66796875,
+      "peak_allocated_gb": 0.5265612602233887,
+      "peak_reserved_gb": 0.669921875
+    },
+    "ablate": {
+      "allocated_gb": 0.4429049491882324,
+      "reserved_gb": 0.66796875,
+      "peak_allocated_gb": 0.4593195915222168,
+      "peak_reserved_gb": 0.66796875
+    },
+    "train": {
+      "allocated_gb": 0.4434189796447754,
+      "reserved_gb": 1.115234375,
+      "peak_allocated_gb": 1.0136775970458984,
+      "peak_reserved_gb": 1.115234375
+    },
+    "verify": {
+      "allocated_gb": 0.4434189796447754,
+      "reserved_gb": 1.115234375,
+      "peak_allocated_gb": 0.5025506019592285,
+      "peak_reserved_gb": 1.115234375
+    }
+  },
+  "stages": {
+    "current_version": null,
+    "base_probe": {
+      "prompts": [
+        "What is the capital of Australia? Answer with only the city name.",
+        "Australia's capital city is which? Answer with only the city name.",
+        "Name the capital of Australia. Reply with just the city name.",
+        "Which city serves as the capital of Australia? Use only the city name.",
+        "The government of Australia is based in which city? Answer with only the city.",
+        "What city is the capital of Australia? Give just the city name."
+      ],
+      "answers": [
+        "Sydney",
+        "Canberra",
+        "Canberra",
+        "Sydney",
+        "Sydney",
+        "Sydney"
+      ]
+    },
+    "base_failure": {
+      "fix_ratio": 0.3333333333333333,
+      "mean_target_lp": -0.8551117281119028,
+      "mean_wrong_lp": -0.4971031074722608,
+      "variants": [
+        {
+          "prompt": "What is the capital of Australia? Answer with only the city name.",
+          "target_lp": -0.8350939154624939,
+          "wrong_lp": -0.3930060565471649,
+          "wrong_span": "Sydney",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "Australia's capital city is which? Answer with only the city name.",
+          "target_lp": -0.5195817947387695,
+          "wrong_lp": -0.5195817947387695,
+          "wrong_span": "Canberra",
+          "already_correct": true,
+          "passed": true
+        },
+        {
+          "prompt": "Name the capital of Australia. Reply with just the city name.",
+          "target_lp": -1.0711095333099365,
+          "wrong_lp": -1.0711095333099365,
+          "wrong_span": "Canberra",
+          "already_correct": true,
+          "passed": true
+        },
+        {
+          "prompt": "Which city serves as the capital of Australia? Use only the city name.",
+          "target_lp": -0.8332618474960327,
+          "wrong_lp": -0.44253668189048767,
+          "wrong_span": "Sydney",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "The government of Australia is based in which city? Answer with only the city.",
+          "target_lp": -0.8852708339691162,
+          "wrong_lp": -0.3121677339076996,
+          "wrong_span": "Sydney",
+          "already_correct": false,
+          "passed": false
+        },
+        {
+          "prompt": "What city is the capital of Australia? Give just the city name.",
+          "target_lp": -0.9863524436950684,
+          "wrong_lp": -0.24421684443950653,
+          "wrong_span": "Sydney",
+          "already_correct": false,
+          "passed": false
+        }
+      ]
+    },
+    "locate": {
+      "n_prefilter": 576,
+      "n_candidates": 288,
+      "n_layers": 24,
+      "per_layer": {
+        "0": 12,
+        "1": 12,
+        "2": 12,
+        "3": 12,
+        "4": 12,
+        "5": 12,
+        "6": 12,
+        "7": 12,
+        "8": 12,
+        "9": 12,
+        "10": 12,
+        "11": 12,
+        "12": 12,
+        "13": 12,
+        "14": 12,
+        "15": 12,
+        "16": 12,
+        "17": 12,
+        "18": 12,
+        "19": 12,
+        "20": 12,
+        "21": 12,
+        "22": 12,
+        "23": 12
+      },
+      "per_module": {
+        "model.layers.0.mlp.gate_proj": 12,
+        "model.layers.1.mlp.gate_proj": 11,
+        "model.layers.1.mlp.up_proj": 1,
+        "model.layers.10.mlp.gate_proj": 12,
+        "model.layers.11.mlp.gate_proj": 11,
+        "model.layers.11.mlp.up_proj": 1,
+        "model.layers.12.mlp.gate_proj": 12,
+        "model.layers.13.mlp.gate_proj": 12,
+        "model.layers.14.mlp.gate_proj": 12,
+        "model.layers.15.mlp.gate_proj": 11,
+        "model.layers.15.mlp.up_proj": 1,
+        "model.layers.16.mlp.down_proj": 1,
+        "model.layers.16.mlp.gate_proj": 10,
+        "model.layers.16.mlp.up_proj": 1,
+        "model.layers.17.mlp.gate_proj": 12,
+        "model.layers.18.mlp.gate_proj": 11,
+        "model.layers.18.mlp.up_proj": 1,
+        "model.layers.19.mlp.gate_proj": 12,
+        "model.layers.2.mlp.gate_proj": 11,
+        "model.layers.2.mlp.up_proj": 1,
+        "model.layers.20.mlp.down_proj": 1,
+        "model.layers.20.mlp.gate_proj": 11,
+        "model.layers.21.mlp.down_proj": 1,
+        "model.layers.21.mlp.gate_proj": 9,
+        "model.layers.21.mlp.up_proj": 1,
+        "model.layers.21.self_attn.o_proj": 1,
+        "model.layers.22.mlp.down_proj": 1,
+        "model.layers.22.mlp.gate_proj": 11,
+        "model.layers.23.mlp.down_proj": 1,
+        "model.layers.23.mlp.gate_proj": 10,
+        "model.layers.23.self_attn.o_proj": 1,
+        "model.layers.3.mlp.gate_proj": 11,
+        "model.layers.3.mlp.up_proj": 1,
+        "model.layers.4.mlp.gate_proj": 12,
+        "model.layers.5.mlp.gate_proj": 12,
+        "model.layers.6.mlp.gate_proj": 11,
+        "model.layers.6.mlp.up_proj": 1,
+        "model.layers.7.mlp.gate_proj": 11,
+        "model.layers.7.mlp.up_proj": 1,
+        "model.layers.8.mlp.gate_proj": 12,
+        "model.layers.9.mlp.gate_proj": 12
+      },
+      "gradxact_loss": 0.8350939154624939,
+      "wrong_span": "Sydney",
+      "target_span": "Canberra",
+      "wrong_span_tokens": 2
+    },
+    "ablate": {
+      "baseline": {
+        "m": -1.2280999720096588,
+        "wrong_lp": -0.3930060565471649,
+        "target_lp": -0.8350939154624939
+      },
+      "epsilon_ablate": 0.11968168616294861,
+      "epsilon_row": 0.059840843081474304,
+      "null_deltas": [
+        0.018678218126296997,
+        0.017332077026367188,
+        0.07978779077529907,
+        0.02085214853286743
+      ],
+      "n_groups": 65,
+      "n_groups_hit": 11,
+      "n_named": 32,
+      "n_fallback": 20,
+      "metric_evals": 183,
+      "forward_pairs": 184,
+      "named": [
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 3383,
+          "delta_m": -0.5722074806690216,
+          "delta_target": -0.23539739847183228,
+          "delta_wrong": -0.33681008219718933,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.down_proj",
+          "row": 490,
+          "delta_m": -0.19663134217262268,
+          "delta_target": -0.04906517267227173,
+          "delta_wrong": -0.14756616950035095,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.22.mlp.down_proj",
+          "row": 490,
+          "delta_m": 0.1936117708683014,
+          "delta_target": 0.18506461381912231,
+          "delta_wrong": 0.008547157049179077,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.21.mlp.down_proj",
+          "row": 490,
+          "delta_m": 0.16878169775009155,
+          "delta_target": 0.16343039274215698,
+          "delta_wrong": 0.00535130500793457,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 3035,
+          "delta_m": -0.1531532108783722,
+          "delta_target": -0.0241396427154541,
+          "delta_wrong": -0.1290135681629181,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.2.mlp.up_proj",
+          "row": 813,
+          "delta_m": -0.14109326899051666,
+          "delta_target": -0.3607334494590759,
+          "delta_wrong": 0.21964018046855927,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.2.mlp.gate_proj",
+          "row": 813,
+          "delta_m": -0.14109326899051666,
+          "delta_target": -0.3607334494590759,
+          "delta_wrong": 0.21964018046855927,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 1396,
+          "delta_m": -0.13189497590065002,
+          "delta_target": -0.0665159821510315,
+          "delta_wrong": -0.06537899374961853,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 2505,
+          "delta_m": -0.13069412112236023,
+          "delta_target": 0.15705657005310059,
+          "delta_wrong": -0.2877506911754608,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.12.mlp.gate_proj",
+          "row": 765,
+          "delta_m": 0.12612265348434448,
+          "delta_target": 0.09213608503341675,
+          "delta_wrong": 0.033986568450927734,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 4144,
+          "delta_m": -0.0993143618106842,
+          "delta_target": -0.04667383432388306,
+          "delta_wrong": -0.05264052748680115,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.3.mlp.gate_proj",
+          "row": 2247,
+          "delta_m": 0.09787645936012268,
+          "delta_target": 0.0483129620552063,
+          "delta_wrong": 0.04956349730491638,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.16.mlp.gate_proj",
+          "row": 2713,
+          "delta_m": 0.07746738195419312,
+          "delta_target": 0.03949624300003052,
+          "delta_wrong": 0.0379711389541626,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.21.mlp.gate_proj",
+          "row": 4664,
+          "delta_m": -0.07272443175315857,
+          "delta_target": -0.05758929252624512,
+          "delta_wrong": -0.015135139226913452,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.19.mlp.gate_proj",
+          "row": 4280,
+          "delta_m": 0.0699138343334198,
+          "delta_target": 0.056243717670440674,
+          "delta_wrong": 0.013670116662979126,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.12.mlp.gate_proj",
+          "row": 2481,
+          "delta_m": 0.06857016682624817,
+          "delta_target": 0.056213438510894775,
+          "delta_wrong": 0.012356728315353394,
+          "fallback": false
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 1439,
+          "delta_m": 0.06635218858718872,
+          "delta_target": 0.0651751160621643,
+          "delta_wrong": 0.001177072525024414,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.19.mlp.gate_proj",
+          "row": 1977,
+          "delta_m": 0.06609967350959778,
+          "delta_target": 0.023191750049591064,
+          "delta_wrong": 0.042907923460006714,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.16.mlp.gate_proj",
+          "row": 2420,
+          "delta_m": 0.060000985860824585,
+          "delta_target": 0.01938074827194214,
+          "delta_wrong": 0.040620237588882446,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.16.mlp.up_proj",
+          "row": 3101,
+          "delta_m": 0.059819191694259644,
+          "delta_target": 0.018459975719451904,
+          "delta_wrong": 0.04135921597480774,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.17.mlp.gate_proj",
+          "row": 1554,
+          "delta_m": 0.05808055400848389,
+          "delta_target": 0.039594411849975586,
+          "delta_wrong": 0.0184861421585083,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 4525,
+          "delta_m": 0.05486038327217102,
+          "delta_target": 0.03704690933227539,
+          "delta_wrong": 0.01781347393989563,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.16.mlp.down_proj",
+          "row": 490,
+          "delta_m": 0.054807960987091064,
+          "delta_target": 0.08364766836166382,
+          "delta_wrong": -0.028839707374572754,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 3377,
+          "delta_m": 0.053475648164749146,
+          "delta_target": 0.025789737701416016,
+          "delta_wrong": 0.02768591046333313,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 862,
+          "delta_m": 0.05323567986488342,
+          "delta_target": 0.0064299702644348145,
+          "delta_wrong": 0.04680570960044861,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 3728,
+          "delta_m": 0.05144473910331726,
+          "delta_target": 0.03163677453994751,
+          "delta_wrong": 0.01980796456336975,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.16.mlp.gate_proj",
+          "row": 777,
+          "delta_m": 0.05118224024772644,
+          "delta_target": 0.05656689405441284,
+          "delta_wrong": -0.005384653806686401,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 1089,
+          "delta_m": 0.05095800757408142,
+          "delta_target": 0.035691261291503906,
+          "delta_wrong": 0.015266746282577515,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.17.mlp.gate_proj",
+          "row": 2286,
+          "delta_m": 0.04981270432472229,
+          "delta_target": 0.03773999214172363,
+          "delta_wrong": 0.012072712182998657,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 2580,
+          "delta_m": 0.048686206340789795,
+          "delta_target": 0.003587782382965088,
+          "delta_wrong": 0.04509842395782471,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.8.mlp.gate_proj",
+          "row": 2979,
+          "delta_m": 0.04714265465736389,
+          "delta_target": 0.0027959346771240234,
+          "delta_wrong": 0.04434671998023987,
+          "fallback": true
+        },
+        {
+          "layer": "model.layers.23.mlp.gate_proj",
+          "row": 1341,
+          "delta_m": -0.04666951298713684,
+          "delta_target": -0.04088568687438965,
+          "delta_wrong": -0.005783826112747192,
+          "fallback": true
+        }
+      ]
+    },
+    "materialize": {
+      "base_ledger": "<repo>\\artifacts\\multi-e2e\\versions\\base",
+      "n_new_rows": 32,
+      "n_union_rows": 32,
+      "n_union_layers": 17,
+      "delta_param_mb": 0.17,
+      "adam_estimate_mb": 0.68
+    },
+    "train": {
+      "steps_run": 175,
+      "stopped_reason": "norm_guard: max_edit_ratio=3.280",
+      "history": [
+        {
+          "step": 1.0,
+          "ce": 0.83203125,
+          "kl": 0.0012994054704904556,
+          "kl_prev": 0.0,
+          "loss": 0.832421064376831,
+          "grad_norm": 2.3112330436706543,
+          "target_lp": -0.7577065229415894,
+          "wrong_lp": -0.37547311186790466,
+          "max_delta_ratio": 0.018313428618252053,
+          "elapsed_s": 0.701
+        },
+        {
+          "step": 25.0,
+          "ce": 0.059326171875,
+          "kl": 0.015767108649015427,
+          "kl_prev": 0.0,
+          "loss": 0.06405630707740784,
+          "grad_norm": 0.09538351744413376,
+          "target_lp": -0.04989379271864891,
+          "wrong_lp": -1.2617853879928589,
+          "max_delta_ratio": 1.3396798667425829,
+          "elapsed_s": 6.758
+        },
+        {
+          "step": 50.0,
+          "ce": 0.031005859375,
+          "kl": 0.011889318004250526,
+          "kl_prev": 0.0,
+          "loss": 0.03457265347242355,
+          "grad_norm": 0.03773316740989685,
+          "target_lp": -0.02352210506796837,
+          "wrong_lp": -1.6309280395507812,
+          "max_delta_ratio": 1.8377131437162464,
+          "elapsed_s": 14.836
+        },
+        {
+          "step": 75.0,
+          "ce": 0.0191650390625,
+          "kl": 0.009877054020762444,
+          "kl_prev": 0.0,
+          "loss": 0.022128155454993248,
+          "grad_norm": 0.03557939454913139,
+          "target_lp": -0.012213065288960934,
+          "wrong_lp": -1.869429349899292,
+          "max_delta_ratio": 2.0154254395302074,
+          "elapsed_s": 22.911
+        },
+        {
+          "step": 100.0,
+          "ce": 0.00897216796875,
+          "kl": 0.009246625937521458,
+          "kl_prev": 0.0,
+          "loss": 0.01174615602940321,
+          "grad_norm": 0.018772704526782036,
+          "target_lp": -0.005959292408078909,
+          "wrong_lp": -2.2591912746429443,
+          "max_delta_ratio": 2.3143263120034243,
+          "elapsed_s": 32.119
+        },
+        {
+          "step": 125.0,
+          "ce": 0.00567626953125,
+          "kl": 0.007803368382155895,
+          "kl_prev": 0.0,
+          "loss": 0.008017280139029026,
+          "grad_norm": 0.011283141560852528,
+          "target_lp": -0.005267628934234381,
+          "wrong_lp": -2.403486490249634,
+          "max_delta_ratio": 2.5253330865603387,
+          "elapsed_s": 41.306
+        },
+        {
+          "step": 150.0,
+          "ce": 0.004241943359375,
+          "kl": 0.006605071946978569,
+          "kl_prev": 0.0,
+          "loss": 0.0062234653159976006,
+          "grad_norm": 0.017139825969934464,
+          "target_lp": -0.002524362411350012,
+          "wrong_lp": -2.8811192512512207,
+          "max_delta_ratio": 2.9733465180111303,
+          "elapsed_s": 50.528
+        },
+        {
+          "step": 175.0,
+          "ce": 0.0020294189453125,
+          "kl": 0.00522899255156517,
+          "kl_prev": 0.0,
+          "loss": 0.0035981168039143085,
+          "grad_norm": 0.0072852871380746365,
+          "target_lp": -0.0013856686418876052,
+          "wrong_lp": -3.442233085632324,
+          "max_delta_ratio": 3.280339243250798,
+          "elapsed_s": 59.436
+        }
+      ],
+      "delta_norms": {
+        "model.layers.12.mlp.gate_proj:765": 2.4384372234344482,
+        "model.layers.12.mlp.gate_proj:2481": 3.0854361057281494,
+        "model.layers.16.mlp.down_proj:490": 5.305609226226807,
+        "model.layers.16.mlp.gate_proj:777": 1.1383744478225708,
+        "model.layers.16.mlp.gate_proj:2420": 1.488090991973877,
+        "model.layers.16.mlp.gate_proj:2713": 2.160499334335327,
+        "model.layers.16.mlp.up_proj:3101": 2.03257417678833,
+        "model.layers.17.mlp.gate_proj:1554": 3.2619667053222656,
+        "model.layers.17.mlp.gate_proj:2286": 2.3134102821350098,
+        "model.layers.19.mlp.gate_proj:1977": 1.3185805082321167,
+        "model.layers.19.mlp.gate_proj:4280": 1.3594385385513306,
+        "model.layers.2.mlp.gate_proj:813": 2.913257598876953,
+        "model.layers.2.mlp.up_proj:813": 6.043111324310303,
+        "model.layers.21.mlp.down_proj:490": 3.4665863513946533,
+        "model.layers.21.mlp.gate_proj:4664": 1.4801456928253174,
+        "model.layers.22.mlp.down_proj:490": 3.1700942516326904,
+        "model.layers.22.mlp.gate_proj:1439": 1.1890287399291992,
+        "model.layers.22.mlp.gate_proj:3035": 1.8379120826721191,
+        "model.layers.23.mlp.down_proj:490": 3.775700092315674,
+        "model.layers.23.mlp.gate_proj:1341": 1.6872409582138062,
+        "model.layers.23.mlp.gate_proj:1396": 1.5502969026565552,
+        "model.layers.23.mlp.gate_proj:2505": 1.468696117401123,
+        "model.layers.23.mlp.gate_proj:3383": 1.4822227954864502,
+        "model.layers.23.mlp.gate_proj:3728": 1.3610020875930786,
+        "model.layers.23.mlp.gate_proj:4144": 2.148055076599121,
+        "model.layers.3.mlp.gate_proj:2247": 1.6692074537277222,
+        "model.layers.5.mlp.gate_proj:862": 1.713431477546692,
+        "model.layers.5.mlp.gate_proj:1089": 1.776899814605713,
+        "model.layers.5.mlp.gate_proj:2580": 3.1913034915924072,
+        "model.layers.5.mlp.gate_proj:3377": 1.512939453125,
+        "model.layers.5.mlp.gate_proj:4525": 1.3563930988311768,
+        "model.layers.8.mlp.gate_proj:2979": 3.111766815185547
+      },
+      "peak_cuda_gb": 1.0136775970458984
+    },
+    "verify": {
+      "passed": true,
+      "reasons": [],
+      "failure": {
+        "fix_ratio": 1.0,
+        "mean_target_lp": -0.0016573299459802608,
+        "mean_wrong_lp": -1.9551679226957883,
+        "variants": [
+          {
+            "prompt": "What is the capital of Australia? Answer with only the city name.",
+            "target_lp": -0.0013856686418876052,
+            "wrong_lp": -3.442233085632324,
+            "wrong_span": "Sydney",
+            "already_correct": false,
+            "passed": true,
+            "generation": "Canberra",
+            "generation_exact": true,
+            "generation_contains": true
+          },
+          {
+            "prompt": "Australia's capital city is which? Answer with only the city name.",
+            "target_lp": -0.0017399133648723364,
+            "wrong_lp": -0.0017399133648723364,
+            "wrong_span": "Canberra",
+            "already_correct": true,
+            "passed": true
+          },
+          {
+            "prompt": "Name the capital of Australia. Reply with just the city name.",
+            "target_lp": -0.0013263481669127941,
+            "wrong_lp": -0.0013263481669127941,
+            "wrong_span": "Canberra",
+            "already_correct": true,
+            "passed": true
+          },
+          {
+            "prompt": "Which city serves as the capital of Australia? Use only the city name.",
+            "target_lp": -0.0016417705919593573,
+            "wrong_lp": -2.672139883041382,
+            "wrong_span": "Sydney",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "The government of Australia is based in which city? Answer with only the city.",
+            "target_lp": -0.0026306589134037495,
+            "wrong_lp": -2.858722686767578,
+            "wrong_span": "Sydney",
+            "already_correct": false,
+            "passed": true
+          },
+          {
+            "prompt": "What city is the capital of Australia? Give just the city name.",
+            "target_lp": -0.0012196199968457222,
+            "wrong_lp": -2.75484561920166,
+            "wrong_span": "Sydney",
+            "already_correct": false,
+            "passed": true
+          }
+        ]
+      },
+      "background": {
+        "kl_mean": 0.005037179682403803,
+        "kl_max": 0.02733072265982628,
+        "n": 16,
+        "texts": [
+          "The capital of France is",
+          "2 + 2 =",
+          "The opposite of hot is",
+          "Python is a programming",
+          "The sun rises in the",
+          "A cat is a small",
+          "Water boils at",
+          "The largest planet is",
+          "She opened the door and",
+          "The quick brown fox",
+          "今天天气很",
+          "人工智能是一种",
+          "中国的首都是",
+          "请写一个计算两数之和的",
+          "阅读下面的文字并回答",
+          "The function returns the"
+        ]
+      },
+      "target_lp_gain_vs_base": 0.8534543981659226
+    },
+    "regression": {
+      "passed": true,
+      "mean_fix_ratio": 1.0,
+      "items": []
+    },
+    "cumulative": {
+      "passed": true,
+      "max_ratio": 3.280339243250798,
+      "limit": 5.0,
+      "top": [
+        {
+          "layer": "model.layers.17.mlp.gate_proj",
+          "row": 1554,
+          "ratio": 3.280339243250798
+        },
+        {
+          "layer": "model.layers.5.mlp.gate_proj",
+          "row": 2580,
+          "ratio": 3.035968887711609
+        },
+        {
+          "layer": "model.layers.16.mlp.up_proj",
+          "row": 3101,
+          "ratio": 2.9534199865156183
+        },
+        {
+          "layer": "model.layers.22.mlp.gate_proj",
+          "row": 3035,
+          "ratio": 2.35468696839432
+        },
+        {
+          "layer": "model.layers.12.mlp.gate_proj",
+          "row": 2481,
+          "ratio": 2.3515532090724904
+        },
+        {
+          "layer": "model.layers.8.mlp.gate_proj",
+          "row": 2979,
+          "ratio": 2.2960719063676818
+        },
+        {
+          "layer": "model.layers.21.mlp.gate_proj",
+          "row": 4664,
+          "ratio": 1.9930415738308662
+        },
+        {
+          "layer": "model.layers.17.mlp.gate_proj",
+          "row": 2286,
+          "ratio": 1.7337120854931098
+        }
+      ]
+    }
+  },
+  "result": "version_committed",
+  "effective_failure": {
+    "id": "smoke-australia-capital",
+    "prompt": "What is the capital of Australia? Answer with only the city name.",
+    "wrong_span": "Sydney",
+    "target_span": "Canberra",
+    "paraphrases": [
+      "Australia's capital city is which? Answer with only the city name.",
+      "Name the capital of Australia. Reply with just the city name.",
+      "Which city serves as the capital of Australia? Use only the city name.",
+      "The government of Australia is based in which city? Answer with only the city.",
+      "What city is the capital of Australia? Give just the city name."
+    ],
+    "category": ""
+  },
+  "version": {
+    "version_id": "20261031T035344-552a94",
+    "parent_version": null,
+    "created_at": "2026-10-31T03:53:44+0800",
+    "status": "accepted",
+    "base_sha256": "997c044f072e3583d83f9f21b966576f8b2d8d3fb445624335566ff99d243e68",
+    "sidecar_sha256": "f12c11fc7d091ebe24f183dafb496fa85ca836e085672fe5ae9c2bdc69ac5010",
+    "param_mode": "splice_fp16",
+    "failure_ids": [
+      "smoke-australia-capital"
+    ],
+    "n_rows": 32,
+    "n_layers": 17,
+    "config_hash": "83b560d9881e66dc",
+    "code_version": "qlamt-0.1.0",
+    "metrics": {
+      "hybrid_fix_ratio": 1.0,
+      "post_quant_fix_ratio": null,
+      "bg_kl_mean": 0.005037179682403803,
+      "target_lp_gain": 0.8534543981659226,
+      "regression_fix_ratio": 1.0,
+      "cumulative_row_ratio_max": 3.280339243250798,
+      "n_rows": 32,
+      "n_new_rows": 32
+    }
+  }
+}

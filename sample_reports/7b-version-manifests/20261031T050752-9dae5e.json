@@ -1,0 +1,29 @@
+{
+  "version_id": "20261031T050752-9dae5e",
+  "parent_version": "20261031T050011-e95419",
+  "created_at": "2026-10-31T05:07:52+0800",
+  "status": "rejected",
+  "base_sha256": "4d822be937d94fcd51798db88546890241e05bfa975fc664a85b2a34fa34d36b",
+  "sidecar_sha256": "a2650cadb011f76df4bf0ce8514255e6fe57dd9b8c611c79e96323b704c6a369",
+  "param_mode": "splice_fp16",
+  "failure_ids": [
+    "fact-orion-founder"
+  ],
+  "failure_sha256": "e1dc81f25ea3443e708308e68c2a1a4d6a7d5b72c04a658a6baa7b39c296f03f",
+  "base_answers_sha256": "102f8f20307851b1d3f809a6fa899d7abef6d7a0b5f2d15e050fc680e83984b1",
+  "n_rows": 140,
+  "n_layers": 51,
+  "config_hash": "23a0dcec4371f9c4",
+  "code_version": "qlamt-0.1.0",
+  "metrics": {
+    "hybrid_fix_ratio": 0.6666666666666666,
+    "post_quant_fix_ratio": null,
+    "bg_kl_mean": 0.012111207470297813,
+    "target_lp_gain": 6.555132945378622,
+    "regression_fix_ratio": 1.0,
+    "cumulative_row_ratio_max": 2.8482317276760467,
+    "n_rows": 140,
+    "n_new_rows": 96,
+    "reject_reason": "fix_ratio 0.667 < 0.800"
+  }
+}
