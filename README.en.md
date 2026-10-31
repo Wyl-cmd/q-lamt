@@ -175,4 +175,4 @@ This repository does **not** ship model weights. The Qwen2.5 weights are downloa
 
 ## Acknowledgements
 
-Thanks to **ST** for helpful discussions, implementation feedback, and encouragement during this project.
+With thanks to **ST**.
