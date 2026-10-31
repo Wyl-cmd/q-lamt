@@ -159,7 +159,7 @@ def cmd_version_rollback(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="qlamt", description="Locate-ablate-train row repair")
+    p = argparse.ArgumentParser(prog="qlamt", description="Q-LAMT: quantized locate-ablate-materialize-train row repair")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     def common(sp: argparse.ArgumentParser) -> None:
