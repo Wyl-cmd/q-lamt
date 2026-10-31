@@ -258,4 +258,4 @@ QLoRA/bitsandbytes NF4；ROME、MEMIT 的因果定位与 MLP 行编辑；FISH-Tu
 
 ## 16. 致谢
 
-感谢 **ST 大佬** 在方案讨论、实现和实验验证过程中给予的帮助与建议。
+谨向 **ST 大佬** 致以诚挚的感谢。
